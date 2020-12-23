@@ -1,9 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
 /* Main body background & Margin */
 body {
     background-color: skyblue;
     margin: 0;
+	font-family: 'Lato';
 }
 
+/* -------------------- All pages -------------------- */
+h1 {
+    display: flex;
+    justify-content: center;
+    letter-spacing: 3px;
+    margin-top: 3em;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+}
+/* -------------------- Index page -------------------- */
+
+.home-box {
+    margin: 3em auto;
+    background-color: white;
+    width: 90%;
+    height: 30em;
+    border-radius: 20px;
+	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+}
+
+.home-box-info {
+    padding: 4em;
+    text-align: center;
+}
+
+/* -------------------- Pokedex Pages -------------------- */
 /* Container of all Poke-cards */
 .box {
     padding: 4em;
@@ -62,8 +93,9 @@ body {
 
 /* Pokemon Type */
 .poke-type {
-    font-weight: lighter;
+    font-weight: normal;
     color: grey;
+    text-transform: capitalize;
     margin-bottom: 0;
 }
 

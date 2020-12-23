@@ -1,0 +1,71 @@
+/* Main body background & Margin */
+body {
+    background-color: skyblue;
+    margin: 0;
+}
+
+/* Container of all Poke-cards */
+.box {
+    padding: 4em;
+    margin: 0 auto;
+}
+
+/* Each individual Pokemon with details */
+#pokedex {
+    padding-inline-start: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 25px;
+}
+
+/* Individual cards to hold details */
+.poke-card {
+    list-style: none;
+	margin: 10px;
+	padding: 20px;
+    background-color: #f4f4f4;
+    color: #222;
+    display: grid;
+    text-align: center;
+    border-radius: 20px;
+	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+}
+
+/* Pokemon Image */
+.poke-image {
+    background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 80%;
+    height: 180px;
+    width: 180px;
+    margin: 0 auto;
+}
+
+/* Pokemon Information Box */
+.poke-info {
+    margin-top: 20px;
+}
+
+/* Pokemon ID */
+.poke-id {
+    background-color: rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	font-size: 0.8em;
+	padding: 5px 10px;
+}
+
+/* Pokemon Name */
+.poke-name {
+    text-transform: capitalize;
+    font-size: 32px;
+    font-weight: normal;
+}
+
+/* Pokemon Type */
+.poke-type {
+    font-weight: lighter;
+    color: grey;
+    margin-bottom: 0;
+}
+
+
+

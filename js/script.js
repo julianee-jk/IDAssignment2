@@ -18,4 +18,15 @@ const fetchPokemon = () => {
         });
 };
 
+const displayPokemon = (pokemon) => {
+    console.log(pokemon);
+    const pokemonHTMLString = pokemon.map ( indivPoke => `
+    <li class="card"> 
+        <img class="card-image" src="${indivPoke.image}" />
+        <h3 class="card-title">${indivPoke.id}. ${indivPoke.name}</h3>
+        <p class="card-subtitle">Type: ${indivPoke.type}</p>
+    </li>
+    `).join('');;
+    pokedex.innerHTML = pokemonHTMLString;
+};
 fetchPokemon();

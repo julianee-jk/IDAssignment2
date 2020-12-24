@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
 /* Main body background & Margin */
 body {
-    background-color: skyblue;
+    background: linear-gradient(to right, #b5b1d6, #689dc9);
     margin: 0;
 	font-family: 'Lato';
 }
@@ -36,7 +36,7 @@ body {
 
 /* -------------------- Region Page -------------------- */
 /* Container of all Poke-cards */
-.box {
+.poke-box {
     padding: 2.4em 4em 0 4em;
     margin: 0 auto;
 }
@@ -53,7 +53,7 @@ body {
 .poke-card {
     list-style: none;
 	margin: 10px;
-	padding: 20px;
+	padding: 20px 0px 20px 0px;
     background-color: #f4f4f4;
     color: #222;
     display: grid;
@@ -62,12 +62,16 @@ body {
 	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
 }
 
+/* .poke-card:hover {
+
+} */
+
 /* Pokemon Image */
 .poke-image {
     background-color: rgba(255, 255, 255, 0.6);
 	border-radius: 80%;
-    height: 180px;
-    width: 180px;
+    height: 150px;
+    width: 150px;
     margin: 0 auto;
 }
 

@@ -18,13 +18,26 @@ body {
     width: 80px;
     height: 80px;
 }
+
+.footer {
+    height: auto;
+    padding: 2em;
+    background-color: black;
+}
+
+.footer-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
 /* -------------------- Index page -------------------- */
 
 .home-box {
     margin: 3em auto;
     background-color: white;
     width: 90%;
-    height: 30em;
+    height: auto;
     border-radius: 20px;
 	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
 }
@@ -120,7 +133,7 @@ body {
     margin: 3em auto;
     background-color: white;
     width: 90%;
-    height: 17.5em;
+    height: auto;
     border-radius: 20px;
 	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
 }

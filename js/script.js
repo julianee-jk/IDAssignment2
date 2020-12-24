@@ -51,4 +51,29 @@ $(document).ready(function(){
       document.getElementById("region_title").innerHTML = "Hoenn Region";
       $( ".region-box" ).hide();
     });
+    $('#sinnoh').on('click',function(event){
+        fetchPokemon(387,493);
+        document.getElementById("region_title").innerHTML = "Sinnoh Region";
+        $( ".region-box" ).hide();
+      });
+    $('#unova').on('click',function(event){
+        fetchPokemon(494,649);
+        document.getElementById("region_title").innerHTML = "Unova Region";
+        $( ".region-box" ).hide();
+        });
+    $('#kalos').on('click',function(event){
+        fetchPokemon(650,721);
+        document.getElementById("region_title").innerHTML = "Kalos Region";
+        $( ".region-box" ).hide();
+        });
+    $('#alola').on('click',function(event){
+        fetchPokemon(722,809);
+        document.getElementById("region_title").innerHTML = "Alola Region";
+        $( ".region-box" ).hide();
+        });
+    $('#galar').on('click',function(event){
+        fetchPokemon(810,898);
+        document.getElementById("region_title").innerHTML = "Galar Region";
+        $( ".region-box" ).hide();
+        });
   });

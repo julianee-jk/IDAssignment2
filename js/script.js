@@ -1,4 +1,18 @@
 const pokedex = document.getElementById('pokedex');
+const searchBar = document.getElementById('searchBar');
+let pokemon = [];
+
+searchBar.addEventListener('keyup', (e) => {
+    const searchTarget = e.target.value;
+
+    const filteredPokemons = pokemon.filter((indivPoke) => {
+        return (
+            indivPoke.name.toLowerCase().includes(searchTarget) || 
+            indivPoke.type.toLowerCase().includes(searchTarget)
+        );
+    });
+    displayPokemon(filteredPokemons);
+});
 
 const fetchPokemon = (startPokeCount, endPokeCount) => {
     const promises = [];
@@ -9,7 +23,7 @@ const fetchPokemon = (startPokeCount, endPokeCount) => {
     };
 
     Promise.all(promises).then(results => {
-        const pokemon = results.map(data => ({
+        pokemon = results.map(data => ({
             id: data.id,
             name: data.name,
             image: data.sprites['front_default'],

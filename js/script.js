@@ -39,16 +39,16 @@ $(document).ready(function(){
     $('#kanto').on('click',function(event){
       fetchPokemon(1,151);
       document.getElementById("region_title").innerHTML = "Kanto Region";
-      $( ".home-box" ).hide();
+      $( ".region-box" ).hide();
     });
     $('#johto').on('click',function(event){ 
       fetchPokemon(152,252);
       document.getElementById("region_title").innerHTML = "Johto Region";
-      $( ".home-box" ).hide();
+      $( ".region-box" ).hide();
     });
     $('#hoenn').on('click',function(event){
       fetchPokemon(253,386);
       document.getElementById("region_title").innerHTML = "Hoenn Region";
-      $( ".home-box" ).hide();
+      $( ".region-box" ).hide();
     });
   });

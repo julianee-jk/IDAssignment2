@@ -99,6 +99,7 @@ body {
     margin-bottom: 0;
 }
 
+/* Region button box */
 .button_box {
     display: flex;
     justify-content: center;
@@ -106,8 +107,25 @@ body {
     padding: 1em 10em 0 10em;
 }
 
+/* Region button */
 .region_btn {
     margin-right: 10px;
 }
+
+.region-box {
+    margin: 3em auto;
+    background-color: white;
+    width: 90%;
+    height: 17.5em;
+    border-radius: 20px;
+	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+}
+
+.region-box-info {
+    padding: 4em;
+    text-align: center;
+}
+
+
 
 

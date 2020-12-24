@@ -34,10 +34,10 @@ body {
     text-align: center;
 }
 
-/* -------------------- Pokedex Pages -------------------- */
+/* -------------------- Region Page -------------------- */
 /* Container of all Poke-cards */
 .box {
-    padding: 4em;
+    padding: 2.4em 4em 0 4em;
     margin: 0 auto;
 }
 
@@ -99,5 +99,15 @@ body {
     margin-bottom: 0;
 }
 
+.button_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 10em 0 10em;
+}
+
+.region_btn {
+    margin-right: 10px;
+}
 
 

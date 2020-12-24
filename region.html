@@ -1,67 +1,79 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Website Title Info -->
-    <link rel="icon" href="images/pokeball_logo.png" />
-    <title>Jul's PokeInfo Center - Kanto</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Website Title Info -->
+  <link rel="icon" href="images/pokeball_logo.png" />
+  <title>Jul's PokeInfo Center - Kanto</title>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img class="logo" src="images/pokeball_logo.png" alt="logo"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" aria-current="page" href="region.html " id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Regions
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" id="kanto">Kanto</a></li>
-                  <li><a class="dropdown-item" id="johto">Johto</a></li>
-                  <li><a class="dropdown-item" id="hoenn">Hoenn</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Types</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    <h1 class="page-title" id="region_title">Kanto Region</h1>
-    <!-- Box to store Pokemon information -->
-    <div class="box">
-        <ol id="pokedex"></ol>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img class="logo" src="images/pokeball_logo.png" alt="logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="region.html" href="#">Regions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Types</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
     </div>
-      <!-- Bootstrap JQuery & JavaScript -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-      <!-- Main JavaScript file -->
-      <script src="js/script.js"></script>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    </div>
+    </div>
+  </nav>
+  <h1 class="page-title" id="region_title">Pokémon Regions</h1>
+  <!-- Region buttons -->
+  <div class="button_box">
+    <button type="button" id="kanto" class="btn btn-light region_btn">Kanto</button>
+    <button type="button" id="johto" class="btn btn-light region_btn">Johto</button>
+    <button type="button" id="hoenn" class="btn btn-light region_btn">Hoenn</button>
+  </div>
+  <div class="home-box">
+    <div class="home-box-info">
+        <h4>Welcome to Pokemon Information Center</h4><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consectetur elementum ante, vitae aliquet nibh rhoncus ut. Nunc velit lacus, suscipit vel orci et, accumsan ullamcorper urna. Donec velit erat, tincidunt eu elementum quis, gravida vitae ipsum. Quisque risus turpis, convallis nec sapien non, malesuada luctus lectus. Vestibulum congue risus feugiat nulla eleifend lacinia. Nunc at nunc diam. Integer scelerisque, felis et convallis congue, mi sapien consectetur ipsum, vitae viverra augue enim sit amet urna. Etiam laoreet metus sit amet eros convallis, vitae commodo nibh imperdiet. Integer nec ex porttitor, porta sem sed, rhoncus nibh. Morbi scelerisque risus volutpat sodales posuere. Nulla sit amet nisi vestibulum nisi tempus fermentum quis a ipsum. Fusce sit amet varius leo. Quisque hendrerit mollis sem, ut lacinia nibh vestibulum et. Aenean tincidunt elementum nulla nec vehicula. Proin ut rhoncus sem. Nulla id nisi fringilla, pulvinar nisl sed, porttitor lectus. Donec iaculis velit eu sem molestie posuere. Sed eu tempus eros, nec molestie tortor. Ut porttitor dui neque, sit amet fermentum ipsum pretium sit amet. Maecenas vel lectus eleifend, consequat urna id, eleifend dui. Morbi justo nunc, consectetur id ornare non, tempor non velit. Fusce a lorem consequat, malesuada libero ut, consectetur nulla.</p>
+    </div>
+  </div>
+  <!-- Box to store Pokemon information -->
+  <div class="box">
+    <ol id="pokedex"></ol>
+  </div>
+  <!-- Bootstrap JQuery & JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+  <!-- Main JavaScript file -->
+  <script src="js/script.js"></script>
 </body>
 </html>

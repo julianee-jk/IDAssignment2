@@ -117,7 +117,7 @@ body {
 /* Pokemon Type */
 .poke-type {
     font-weight: normal;
-    color: grey;
+    color: #e6e6e6;
     text-transform: capitalize;
     margin-bottom: 0;
 }

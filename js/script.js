@@ -4,6 +4,27 @@ const pokedex = document.getElementById('pokedex');
 const searchBar = document.getElementById('searchBar');
 let pokemon = [];
 
+const colors = {
+    fire: '#ffcccc', 
+    grass: '#DEFDE0', 
+    electric: '#FCF7DE', 
+    water: '#DEF3FD', 
+    ground: '#e6d7ae', 
+    rock: '#dbd4b4', 
+    fairy: '#fceaff', 
+    poison: '#f5d3f5', 
+    bug: '#c3d1ba', 
+    dragon: '#97b3e6', 
+    psychic: '#ffdeed', 
+    flying: '#F5F5F5',
+    fighting: '#e6c1ae', 
+    normal: '#F5F5F5',
+    ice: '#b4d9d9',
+    ghost: '#a697bf',
+    dark: '#ab9c93',
+    steel: '#b8b8d0'
+};
+
 // Check every user key input
 searchBar.addEventListener('keyup', (e) => {
     // Force user input to lowercase
@@ -22,7 +43,6 @@ searchBar.addEventListener('keyup', (e) => {
 const fetchPokemon = (startPokeCount, endPokeCount) => {
     const promises = [];
     for (let i = startPokeCount; i <=  endPokeCount; i++) {
-        console.log(fetchPokemon);
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         promises.push(fetch(url).then(res => res.json()));
     };
@@ -44,7 +64,7 @@ const fetchPokemon = (startPokeCount, endPokeCount) => {
 const displayPokemon = (pokemon) => {
     console.log(pokemon);
     const pokemonHTMLString = pokemon.map(indivPoke => `
-    <li class="poke-card"> 
+    <li class="poke-card" style="background-color: ${colors[indivPoke.type.split(",")[0]]}">  
         <img class="poke-image" src="${indivPoke.image}" alt="${indivPoke.name}" />
         <div class="poke-info">
             <span class="poke-id">#${indivPoke.id.toString().padStart(3, '0')}</span>
@@ -58,11 +78,19 @@ const displayPokemon = (pokemon) => {
     pokedex.innerHTML = pokemonHTMLString;
 };
 
+let cards = document.getElementsByClassName("poke-card");
+for (let i = 1; i <= cards.length; i++){
+    let type = 'fire';/* get one of the pokemon types here */
+    console.log("card color");
+    cards[i].style.backgroundColor = colors[type];
+};
+
 // Hide search bar as default
 $( ".searchWrapper" ).hide();
 
 // On click change region
 $(document).ready(function(){
+    
     // All regions
     $('#allregions').on('click',function(event){
         fetchPokemon(1,898);

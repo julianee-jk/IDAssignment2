@@ -2,6 +2,23 @@ const pokedex = document.getElementById('pokedex');
 const searchBar = document.getElementById('searchBar');
 let pokemon = [];
 
+const colors = {
+	fire: '#FDDFDF',
+	grass: '#DEFDE0',
+	electric: '#FCF7DE',
+	water: '#DEF3FD',
+	ground: '#f4e7da',
+	rock: '#d5d5d4',
+	fairy: '#fceaff',
+	poison: '#98d7a5',
+	bug: '#f8d5a3',
+	dragon: '#97b3e6',
+	psychic: '#eaeda1',
+	flying: '#F5F5F5',
+	fighting: '#E6E0D4',
+	normal: '#F5F5F5'
+};
+const main_types = Object.keys(colors);
 searchBar.addEventListener('keyup', (e) => {
     const searchTarget = e.target.value.toLowerCase();
 
@@ -28,7 +45,7 @@ const fetchPokemon = (startPokeCount, endPokeCount) => {
             name: data.name,
             image: data.sprites['front_default'],
             ability: data.abilities.map((ability) => ability.ability.name).join(', '),
-            type: data.types.map((type) => type.type.name).join(', ')
+            type: data.types.map((type) => type.type.name).join(', '),
         }));
         displayPokemon(pokemon);
     });
@@ -40,7 +57,7 @@ const displayPokemon = (pokemon) => {
     <li class="poke-card"> 
         <img class="poke-image" src="${indivPoke.image}" alt="${indivPoke.name}" />
         <div class="poke-info">
-            <span class="poke-id">${indivPoke.id.toString().padStart(3, '0')}</span>
+            <span class="poke-id">#${indivPoke.id.toString().padStart(3, '0')}</span>
             <h3 class="poke-name">${indivPoke.name}</h3>
             <small class="poke-type">Type: ${indivPoke.type}<br>
             Abilities: ${indivPoke.ability}
@@ -67,13 +84,13 @@ $(document).ready(function(){
       $( ".searchWrapper" ).show();
     });
     $('#johto').on('click',function(event){ 
-      fetchPokemon(152,252);
+      fetchPokemon(152,251);
       document.getElementById("region_title").innerHTML = "Johto Region";
       $( ".region-box" ).hide();
       $( ".searchWrapper" ).show();
     });
     $('#hoenn').on('click',function(event){
-      fetchPokemon(253,386);
+      fetchPokemon(252,386);
       document.getElementById("region_title").innerHTML = "Hoenn Region";
       $( ".region-box" ).hide();
       $( ".searchWrapper" ).show();

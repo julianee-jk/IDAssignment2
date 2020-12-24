@@ -20,7 +20,7 @@ const colors = {
     fighting: '#e6c1ae', 
     normal: '#F5F5F5',
     ice: '#b4d9d9',
-    ghost: '#a697bf',
+    ghost: '#ada3bf',
     dark: '#ab9c93',
     steel: '#b8b8d0'
 };

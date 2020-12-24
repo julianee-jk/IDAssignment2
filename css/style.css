@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
 /* Main body background & Margin */
 body {
-    background: linear-gradient(to right, #b5b1d6, #689dc9);
+	background: linear-gradient(to right, #c6c4d8, #EFEFBB);
     margin: 0;
 	font-family: 'Lato';
 }
@@ -18,8 +18,8 @@ body {
 
 /* Logo */
 .logo {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
 }
 
 /* Footer design */
@@ -117,7 +117,7 @@ body {
 /* Pokemon Type */
 .poke-type {
     font-weight: normal;
-    color: #e6e6e6;
+    color: #636363;
     text-transform: capitalize;
     margin-bottom: 0;
 }

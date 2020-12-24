@@ -3,7 +3,7 @@ const searchBar = document.getElementById('searchBar');
 let pokemon = [];
 
 searchBar.addEventListener('keyup', (e) => {
-    const searchTarget = e.target.value;
+    const searchTarget = e.target.value.toLowerCase();
 
     const filteredPokemons = pokemon.filter((indivPoke) => {
         return (
@@ -27,6 +27,7 @@ const fetchPokemon = (startPokeCount, endPokeCount) => {
             id: data.id,
             name: data.name,
             image: data.sprites['front_default'],
+            ability: data.abilities.map((ability) => ability.ability.name).join(', '),
             type: data.types.map((type) => type.type.name).join(', ')
         }));
         displayPokemon(pokemon);
@@ -41,58 +42,70 @@ const displayPokemon = (pokemon) => {
         <div class="poke-info">
             <span class="poke-id">${indivPoke.id}</span>
             <h3 class="poke-name">${indivPoke.name}</h3>
-            <small class="poke-type">Type: ${indivPoke.type}</small>
+            <small class="poke-type">Type: ${indivPoke.type}<br>
+            Abilities: ${indivPoke.ability}
+            </small>
         </div>
     </li>
     `).join('');;
     pokedex.innerHTML = pokemonHTMLString;
 };
 
+$( ".searchWrapper" ).hide();
 // On click
 $(document).ready(function(){
     $('#allregions').on('click',function(event){
         fetchPokemon(1,898);
         document.getElementById("region_title").innerHTML = "Kanto Region";
         $( ".region-box" ).hide();
+        $( ".searchWrapper" ).show();
       });
     $('#kanto').on('click',function(event){
       fetchPokemon(1,151);
       document.getElementById("region_title").innerHTML = "Kanto Region";
       $( ".region-box" ).hide();
+      $( ".searchWrapper" ).show();
     });
     $('#johto').on('click',function(event){ 
       fetchPokemon(152,252);
       document.getElementById("region_title").innerHTML = "Johto Region";
       $( ".region-box" ).hide();
+      $( ".searchWrapper" ).show();
     });
     $('#hoenn').on('click',function(event){
       fetchPokemon(253,386);
       document.getElementById("region_title").innerHTML = "Hoenn Region";
       $( ".region-box" ).hide();
+      $( ".searchWrapper" ).show();
     });
     $('#sinnoh').on('click',function(event){
         fetchPokemon(387,493);
         document.getElementById("region_title").innerHTML = "Sinnoh Region";
         $( ".region-box" ).hide();
+        $( ".searchWrapper" ).show();
       });
     $('#unova').on('click',function(event){
         fetchPokemon(494,649);
         document.getElementById("region_title").innerHTML = "Unova Region";
         $( ".region-box" ).hide();
+        $( ".searchWrapper" ).show();
         });
     $('#kalos').on('click',function(event){
         fetchPokemon(650,721);
         document.getElementById("region_title").innerHTML = "Kalos Region";
         $( ".region-box" ).hide();
+        $( ".searchWrapper" ).show();
         });
     $('#alola').on('click',function(event){
         fetchPokemon(722,809);
         document.getElementById("region_title").innerHTML = "Alola Region";
         $( ".region-box" ).hide();
+        $( ".searchWrapper" ).show();
         });
     $('#galar').on('click',function(event){
         fetchPokemon(810,898);
         document.getElementById("region_title").innerHTML = "Galar Region";
         $( ".region-box" ).hide();
+        $( ".searchWrapper" ).show();
         });
   });

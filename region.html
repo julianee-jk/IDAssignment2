@@ -24,16 +24,16 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle active" aria-current="page" href="region.html " id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Regions
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="kanto.html">Kanto</a></li>
-                  <li><a class="dropdown-item" href="johto.html">Johto</a></li>
-                  <li><a class="dropdown-item" href="hoenn.html">Hoenn</a></li>
+                  <li><a class="dropdown-item" id="kanto">Kanto</a></li>
+                  <li><a class="dropdown-item" id="johto">Johto</a></li>
+                  <li><a class="dropdown-item" id="hoenn">Hoenn</a></li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -44,7 +44,6 @@
               </li>
             </ul>
           </div>
-          
         </div>
             <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -53,17 +52,16 @@
           </div>
         </div>
       </nav>
-    <h1>Kanto Region</h1>
+    <h1 class="page-title" id="region_title">Kanto Region</h1>
     <!-- Box to store Pokemon information -->
     <div class="box">
         <ol id="pokedex"></ol>
     </div>
-
-      <!-- Main JavaScript file -->
-      <script src="js/script.js"></script>
       <!-- Bootstrap JQuery & JavaScript -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+      <!-- Main JavaScript file -->
+      <script src="js/script.js"></script>
 </body>
 </html>

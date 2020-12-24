@@ -40,7 +40,7 @@ const displayPokemon = (pokemon) => {
     <li class="poke-card"> 
         <img class="poke-image" src="${indivPoke.image}" alt="${indivPoke.name}" />
         <div class="poke-info">
-            <span class="poke-id">${indivPoke.id}</span>
+            <span class="poke-id">${indivPoke.id.toString().padStart(3, '0')}</span>
             <h3 class="poke-name">${indivPoke.name}</h3>
             <small class="poke-type">Type: ${indivPoke.type}<br>
             Abilities: ${indivPoke.ability}
@@ -58,7 +58,7 @@ $(document).ready(function(){
         fetchPokemon(1,898);
         document.getElementById("region_title").innerHTML = "Kanto Region";
         $( ".region-box" ).hide();
-        $( ".searchWrapper" ).show();
+        $( ".searchWrapper .box" ).show();
       });
     $('#kanto').on('click',function(event){
       fetchPokemon(1,151);

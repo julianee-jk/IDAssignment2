@@ -50,6 +50,11 @@ const displayPokemon = (pokemon) => {
 
 // On click
 $(document).ready(function(){
+    $('#allregions').on('click',function(event){
+        fetchPokemon(1,898);
+        document.getElementById("region_title").innerHTML = "Kanto Region";
+        $( ".region-box" ).hide();
+      });
     $('#kanto').on('click',function(event){
       fetchPokemon(1,151);
       document.getElementById("region_title").innerHTML = "Kanto Region";

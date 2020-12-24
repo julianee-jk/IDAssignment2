@@ -4,6 +4,7 @@ const pokedex = document.getElementById('pokedex');
 const searchBar = document.getElementById('searchBar');
 let pokemon = [];
 
+// Colours of all Pokemon types
 const colors = {
     fire: '#ffcccc', 
     grass: '#DEFDE0', 
@@ -78,13 +79,6 @@ const displayPokemon = (pokemon) => {
     pokedex.innerHTML = pokemonHTMLString;
 };
 
-let cards = document.getElementsByClassName("poke-card");
-for (let i = 1; i <= cards.length; i++){
-    let type = 'fire';/* get one of the pokemon types here */
-    console.log("card color");
-    cards[i].style.backgroundColor = colors[type];
-};
-
 // Hide search bar as default
 $( ".searchWrapper" ).hide();
 
@@ -94,7 +88,7 @@ $(document).ready(function(){
     // All regions
     $('#allregions').on('click',function(event){
         fetchPokemon(1,898);
-        document.getElementById("region_title").innerHTML = "Kanto Region";
+        document.getElementById("region_title").innerHTML = "All Regions";
         $( ".region-box" ).hide();
         $( ".searchWrapper .box" ).show();
       });

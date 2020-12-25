@@ -83,7 +83,8 @@ const fetchPokemon = (startPokeCount, endPokeCount) => {
             ability: data.abilities.map((ability) => ability.ability.name).join(', '),
             stats: data.stats.map((stat) => `${stat.stat.name}: ${stat.base_stat}`).join(', '),
             weight: data.weight,
-            height: data.height
+            height: data.height,
+            // form: data.forms.map((forms) => forms.url[url]).join(', ')
         }));
         displayPokemon(pokemon);
     });
@@ -98,7 +99,7 @@ const displayPokemon = (pokemon) => {
         <div class="poke-info">
             <span class="poke-id">#${indivPoke.id.toString().padStart(3, '0')}</span>
             <h3 class="poke-name">${indivPoke.name}</h3>
-            <small class="poke-type">${indivPoke.typeColor}
+            <small class="poke-type">${indivPoke.typeColor}<br>${indivPoke.form}
             </small>
         </div>
     </li>
@@ -106,6 +107,7 @@ const displayPokemon = (pokemon) => {
     pokedex.innerHTML = pokemonHTMLString;
 };
 
+// Select Pokemon ID 
 const selectPokemon = async (id) => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     const res = await fetch(url);
@@ -113,8 +115,10 @@ const selectPokemon = async (id) => {
     displayPopup(indivPoke);
 }
 
+// Display Pokemon Popup 
 const displayPopup = (indivPoke) => {
     const image = indivPoke.sprites['front_default']
+    const shinyimage = indivPoke.sprites['front_shiny']
     const type = indivPoke.types.map((type) => type.type.name).join(', ')
     const typeColor = indivPoke.types.map((type) => 
     `<span style="background-color: ${realColors[type.type.name]}" class="poke-type-name">${type.type.name}</span>`).join(' ')
@@ -123,17 +127,28 @@ const displayPopup = (indivPoke) => {
     const pokemonPopupString = `
     <div class="popup">
             <button class="closeBtn" id="closeBtn" onclick="closePopup()">✖</button>
-            <div class="popup-card" style="background-color: ${colors[type.split(',')[0]]}">  
-                <img class="popup-image" src="${image}" alt="${indivPoke.name} />
+            <div class="popup-card" style="background-color: ${colors[type.split(',')[0]]}"> 
+                <div class="default-shiny-text">
+                    <medium>Default</medium>
+                    <span class="text-spacing"></span>
+                    <medium class="shiny_text">Shiny</medium>
+                </div>
+                <div class="image-container">
+                    <img class="popup-image" src="${image}" alt="${indivPoke.name}">              
+                    <img class="popup-image" src="${shinyimage}" alt="${indivPoke.name}_shiny">
+                </div>
                 <div class="poke-info">
-                    <span class="poke-id">#${indivPoke.id.toString().padStart(3, '0')}</span>
+                    <div class="poke-id">#${indivPoke.id.toString().padStart(3, '0')}</div>
                     <h3 class="poke-name">${indivPoke.name}</h3>
-                    <small class="poke-type">${typeColor}<br>
-                    Abilities: ${ability}<br>
-                    Height: ${indivPoke.height} | Weight: ${indivPoke.weight}
-                    <div class="poke-stats">
-                        ${stats}<br>
+                    <div class="poke-type">
+                        <small>${typeColor}</small>
                     </div>
+                    <small class="poke-details">
+                        Abilities: ${ability}<br>
+                        Height: ${indivPoke.height/10}m | Weight: ${indivPoke.weight/10}kg
+                        <div class="poke-stats">
+                            ${stats}<br>
+                        </div>
                     </small>
                 </div>
             </div>
@@ -142,6 +157,7 @@ const displayPopup = (indivPoke) => {
     pokedex.innerHTML = pokemonPopupString + pokedex.innerHTML;
 };
 
+// Close Pokemon Popup 
 const closePopup = () => {
     const popup = document.querySelector('.popup');
     popup.parentElement.removeChild(popup);

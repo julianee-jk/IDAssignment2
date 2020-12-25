@@ -3,8 +3,6 @@ const pokedex = document.getElementById('pokedex');
 // Create constant of searchBar ID
 const searchBar = document.getElementById('searchBar');
 
-const pokeCache = {};
-
 let pokemon = [];
 
 // Colours of all Pokemon types
@@ -86,14 +84,10 @@ const displayPokemon = (pokemon) => {
 };
 
 const selectPokemon = async (id) => {
-    if(!pokeCache[id]) {
-        const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-        const res = await fetch(url);
-        const indivPoke = await res.json();
-        pokeCache[id] = indivPoke;
-        displayPopup(indivPoke);
-    }
-    displayPopup(pokeCache[id]);
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+    const res = await fetch(url);
+    const indivPoke = await res.json();
+    displayPopup(indivPoke);
 }
 
 const displayPopup = (indivPoke) => {
@@ -103,9 +97,9 @@ const displayPopup = (indivPoke) => {
     const stats = indivPoke.stats.map((stat) => `${stat.stat.name}: ${stat.base_stat}`).join(', ')
     const pokemonPopupString = `
     <div class="popup">
-            <button class="closeBtn" id="closeBtn" onclick="closePopup()">Close</button>
-            <div class="popup-card">  
-                <img class="poke-image" src="${image}" alt="${indivPoke.name} />
+            <button class="closeBtn" id="closeBtn" onclick="closePopup()">✖</button>
+            <div class="popup-card" style="background-color: ${colors[type.split(',')[0]]}">  
+                <img class="popup-image" src="${image}" alt="${indivPoke.name} />
                 <div class="poke-info">
                     <span class="poke-id">#${indivPoke.id.toString().padStart(3, '0')}</span>
                     <h3 class="poke-name">${indivPoke.name}</h3>

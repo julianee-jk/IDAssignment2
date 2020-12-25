@@ -2,50 +2,25 @@
 const pokedex = document.getElementById('pokedex');
 // Create constant of searchBar ID
 const searchBar = document.getElementById('searchBar');
+//Get the button
+const topButton = document.getElementById("topBtn");
 
 let pokemon = [];
 
-// Colours of all Pokemon types
+// Lighter colours of all Pokemon types
 const colors = {
-    fire: '#ffcccc', 
-    grass: '#DEFDE0', 
-    electric: '#FCF7DE', 
-    water: '#DEF3FD', 
-    ground: '#e6d7ae', 
-    rock: '#dbd4b4', 
-    fairy: '#fceaff', 
-    poison: '#f5d3f5', 
-    bug: '#c3d1ba', 
-    dragon: '#97b3e6', 
-    psychic: '#ffdeed', 
-    flying: '#F5F5F5',
-    fighting: '#e6c1ae', 
-    normal: '#F5F5F5',
-    ice: '#b4d9d9',
-    ghost: '#ada3bf',
-    dark: '#ab9c93',
-    steel: '#b8b8d0'
+    fire: '#ffcccc', grass: '#DEFDE0', electric: '#FCF7DE', water: '#DEF3FD', ground: '#e6d7ae', 
+    rock: '#dbd4b4', fairy: '#fceaff', poison: '#f5d3f5', bug: '#c3d1ba', dragon: '#97b3e6', 
+    psychic: '#ffdeed', flying: '#F5F5F5', fighting: '#e6c1ae', normal: '#F5F5F5', ice: '#b4d9d9',
+    ghost: '#ada3bf', dark: '#ab9c93', steel: '#b8b8d0'
 };
 
+// Original colours of all Pokemon Types
 const realColors = {
-    fire: '#F08030', 
-    grass: '#78C850', 
-    electric: '#F8D030', 
-    water: '#6890F0', 
-    ground: '#E0C068', 
-    rock: '#B8A038', 
-    fairy: '#EE99AC', 
-    poison: '#A040A0', 
-    bug: '#A8B820', 
-    dragon: '#7038F8', 
-    psychic: '#F85888', 
-    flying: '#A890F0',
-    fighting: '#C03028', 
-    normal: '#A8A878',
-    ice: '#98D8D8',
-    ghost: '#705898',
-    dark: '#705848',
-    steel: '#B8B8D0'
+    fire: '#F08030', grass: '#78C850', electric: '#F8D030', water: '#6890F0', ground: '#E0C068', 
+    rock: '#B8A038', fairy: '#EE99AC', poison: '#A040A0', bug: '#A8B820', dragon: '#7038F8', 
+    psychic: '#F85888', flying: '#A890F0',fighting: '#C03028', normal: '#A8A878',ice: '#98D8D8',
+    ghost: '#705898',dark: '#705848',steel: '#B8B8D0'
 }
 
 // Check every user key input
@@ -83,8 +58,7 @@ const fetchPokemon = (startPokeCount, endPokeCount) => {
             ability: data.abilities.map((ability) => ability.ability.name).join(', '),
             stats: data.stats.map((stat) => `${stat.stat.name}: ${stat.base_stat}`).join(', '),
             weight: data.weight,
-            height: data.height,
-            // form: data.forms.map((forms) => forms.url[url]).join(', ')
+            height: data.height
         }));
         displayPokemon(pokemon);
     });
@@ -99,8 +73,7 @@ const displayPokemon = (pokemon) => {
         <div class="poke-info">
             <span class="poke-id">#${indivPoke.id.toString().padStart(3, '0')}</span>
             <h3 class="poke-name">${indivPoke.name}</h3>
-            <small class="poke-type">${indivPoke.typeColor}<br>${indivPoke.form}
-            </small>
+            <small class="poke-type">${indivPoke.typeColor}</small>
         </div>
     </li>
     `).join('');
@@ -126,33 +99,33 @@ const displayPopup = (indivPoke) => {
     const stats = indivPoke.stats.map((stat) => `<b>${stat.stat.name}</b>: ${stat.base_stat}`).join('<br>')
     const pokemonPopupString = `
     <div class="popup">
-            <button class="closeBtn" id="closeBtn" onclick="closePopup()">✖</button>
-            <div class="popup-card" style="background-color: ${colors[type.split(',')[0]]}"> 
-                <div class="default-shiny-text">
-                    <medium>Default</medium>
-                    <span class="text-spacing"></span>
-                    <medium class="shiny_text">Shiny</medium>
+        <button class="closeBtn" id="closeBtn" onclick="closePopup()">✖</button>
+        <div class="popup-card" style="background-color: ${colors[type.split(',')[0]]}"> 
+            <div class="default-shiny-text">
+                <medium>Default</medium>
+                <span class="text-spacing"></span>
+                <medium class="shiny_text">Shiny</medium>
+            </div>
+            <div class="popup-image-container">
+                <img class="popup-image" src="${image}" alt="${indivPoke.name}">              
+                <img class="popup-image" src="${shinyimage}" alt="${indivPoke.name}_shiny">
+            </div>
+            <div class="poke-info">
+                <div class="poke-id">#${indivPoke.id.toString().padStart(3, '0')}</div>
+                <h3 class="poke-name">${indivPoke.name}</h3>
+                <div class="poke-type">
+                    <small>${typeColor}</small>
                 </div>
-                <div class="image-container">
-                    <img class="popup-image" src="${image}" alt="${indivPoke.name}">              
-                    <img class="popup-image" src="${shinyimage}" alt="${indivPoke.name}_shiny">
-                </div>
-                <div class="poke-info">
-                    <div class="poke-id">#${indivPoke.id.toString().padStart(3, '0')}</div>
-                    <h3 class="poke-name">${indivPoke.name}</h3>
-                    <div class="poke-type">
-                        <small>${typeColor}</small>
+                <small class="poke-details">
+                    Abilities: ${ability}<br>
+                    Height: ${indivPoke.height/10}m | Weight: ${indivPoke.weight/10}kg
+                    <div class="poke-stats">
+                        ${stats}<br>
                     </div>
-                    <small class="poke-details">
-                        Abilities: ${ability}<br>
-                        Height: ${indivPoke.height/10}m | Weight: ${indivPoke.weight/10}kg
-                        <div class="poke-stats">
-                            ${stats}<br>
-                        </div>
-                    </small>
-                </div>
+                </small>
             </div>
         </div>
+    </div>
     `;
     pokedex.innerHTML = pokemonPopupString + pokedex.innerHTML;
 };
@@ -232,3 +205,20 @@ $(document).ready(function(){
         $( ".searchWrapper" ).show();
         });
   });
+
+// When the user scrolls down 150px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+    topButton.style.display = "block";
+  } else {
+    topButton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}

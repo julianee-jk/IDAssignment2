@@ -1,5 +1,7 @@
+/* Import google fonts */
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
 /* Main body background & Margin */
 body {
 	background: linear-gradient(to right, #c6c4d8, #EFEFBB);
@@ -7,8 +9,7 @@ body {
 	font-family: 'Lato';
 }
 
-/* -------------------- All pages -------------------- */
-
+/* ---------------------------- Global ---------------------------- */
 /* Main title of pages */
 .page-title {
     display: flex;
@@ -37,7 +38,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
 }
-/* -------------------- Index page -------------------- */
+/* ---------------------------- Index Page ---------------------------- */
 /* Homepage text box  */
 .home-box {
     margin: 3em auto;
@@ -54,7 +55,7 @@ body {
     text-align: center;
 }
 
-/* -------------------- Region Page -------------------- */
+/* ---------------------------- Region Page ---------------------------- */
 /* Container of all Poke-cards */
 .poke-box {
     padding: 2.4em 4em 0 4em;
@@ -82,6 +83,7 @@ body {
 	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
 }
 
+/* Animation on hover */
 .poke-card:hover {
     animation: bounce 0.5s linear;
     cursor: pointer;
@@ -163,6 +165,7 @@ body {
     margin-right: 10px;
 }
 
+/* Container to store region info */
 .region-box {
     margin: 3em auto;
     background-color: white;
@@ -172,9 +175,17 @@ body {
 	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
 }
 
+/* Region info text */
 .region-box-info {
     padding: 4em;
     text-align: center;
+}
+
+/* Container to store Pokemon Search Bar */
+.searchWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Pokemon Search Bar */
@@ -189,12 +200,7 @@ body {
     text-align: center;
 }
 
-.searchWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
+/* ---------------------------- Popup Menu ---------------------------- */
 /* Display popup background */
 .popup {
     position: fixed;
@@ -223,6 +229,7 @@ body {
     border: 3px solid rgb(255, 255, 255);
 }
 
+/* Pokemon image in Popup Menu */
 .popup-image {
     background-color: rgba(255, 255, 255, 0.6);
 	border-radius: 90%;
@@ -230,7 +237,9 @@ body {
     width: 180px;
     margin: 0 auto;
 }
-.image-container {
+
+/* Image container of default & shiny pokemon in Popup */
+.popup-image-container {
     margin-bottom: 0;
 }
 
@@ -241,6 +250,7 @@ body {
     letter-spacing: 2px;
 }
 
+/* Shiny Text Colour */
 .shiny_text {
     color: rgb(160, 136, 0);
 }
@@ -274,7 +284,7 @@ body {
     box-shadow: 0px 1px 2px darkred;
 }
 
-/* Animations */
+/* ---------------------------- Animations ---------------------------- */
 @keyframes bounce {
     20% {
         transform: translateY(-6px);
@@ -290,3 +300,24 @@ body {
         transform: translateY(0);
     }
 }
+
+#topBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    cursor: pointer;
+    padding: 8px 12px 8px 12px;
+    opacity: 0.85;
+    border-radius: 4px;
+  }
+  
+  #topBtn:hover {
+    background-color: #555;
+  }

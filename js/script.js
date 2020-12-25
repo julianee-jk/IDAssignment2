@@ -2,6 +2,9 @@
 const pokedex = document.getElementById('pokedex');
 // Create constant of searchBar ID
 const searchBar = document.getElementById('searchBar');
+
+const pokeCache = {};
+
 let pokemon = [];
 
 // Colours of all Pokemon types
@@ -34,7 +37,8 @@ searchBar.addEventListener('keyup', (e) => {
     const filteredPokemons = pokemon.filter((indivPoke) => {
         return (
             indivPoke.name.toLowerCase().includes(searchTarget) || 
-            indivPoke.type.toLowerCase().includes(searchTarget)
+            indivPoke.type.toLowerCase().includes(searchTarget) ||
+            indivPoke.ability.toLowerCase().includes(searchTarget)
         );
     });
     displayPokemon(filteredPokemons);
@@ -54,8 +58,11 @@ const fetchPokemon = (startPokeCount, endPokeCount) => {
             id: data.id,
             name: data.name,
             image: data.sprites['front_default'],
-            ability: data.abilities.map((ability) => ability.ability.name).join(', '),
             type: data.types.map((type) => type.type.name).join(', '),
+            ability: data.abilities.map((ability) => ability.ability.name).join(', '),
+            stats: data.stats.map((stat) => `${stat.stat.name}: ${stat.base_stat}`).join(', '),
+            weight: data.weight,
+            height: data.height
         }));
         displayPokemon(pokemon);
     });
@@ -65,20 +72,59 @@ const fetchPokemon = (startPokeCount, endPokeCount) => {
 const displayPokemon = (pokemon) => {
     console.log(pokemon);
     const pokemonHTMLString = pokemon.map(indivPoke => `
-    <li class="poke-card" style="background-color: ${colors[indivPoke.type.split(",")[0]]}">  
+    <li class="poke-card" onclick="selectPokemon(${indivPoke.id})" style="background-color: ${colors[indivPoke.type.split(",")[0]]}">  
         <img class="poke-image" src="${indivPoke.image}" alt="${indivPoke.name}" />
         <div class="poke-info">
             <span class="poke-id">#${indivPoke.id.toString().padStart(3, '0')}</span>
             <h3 class="poke-name">${indivPoke.name}</h3>
-            <small class="poke-type">Type: ${indivPoke.type}<br>
-            Abilities: ${indivPoke.ability}
+            <small class="poke-type">Type: ${indivPoke.type}
             </small>
         </div>
     </li>
-    `).join('');;
+    `).join('');
     pokedex.innerHTML = pokemonHTMLString;
 };
 
+const selectPokemon = async (id) => {
+    if(!pokeCache[id]) {
+        const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+        const res = await fetch(url);
+        const indivPoke = await res.json();
+        pokeCache[id] = indivPoke;
+        displayPopup(indivPoke);
+    }
+    displayPopup(pokeCache[id]);
+}
+
+const displayPopup = (indivPoke) => {
+    const image = indivPoke.sprites['front_default']
+    const type = indivPoke.types.map((type) => type.type.name).join(', ')
+    const ability = indivPoke.abilities.map((ability) => ability.ability.name).join(', ')
+    const stats = indivPoke.stats.map((stat) => `${stat.stat.name}: ${stat.base_stat}`).join(', ')
+    const pokemonPopupString = `
+    <div class="popup">
+            <button class="closeBtn" id="closeBtn" onclick="closePopup()">Close</button>
+            <div class="popup-card">  
+                <img class="poke-image" src="${image}" alt="${indivPoke.name} />
+                <div class="poke-info">
+                    <span class="poke-id">#${indivPoke.id.toString().padStart(3, '0')}</span>
+                    <h3 class="poke-name">${indivPoke.name}</h3>
+                    <small class="poke-type">Type: ${type}<br>
+                    Abilities: ${ability}<br>
+                    ${stats}<br>
+                    Height: ${indivPoke.height} | Weight: ${indivPoke.weight}
+                    </small>
+                </div>
+            </div>
+        </div>
+    `;
+    pokedex.innerHTML = pokemonPopupString + pokedex.innerHTML;
+};
+
+const closePopup = () => {
+    const popup = document.querySelector('.popup');
+    popup.parentElement.removeChild(popup);
+};
 // Hide search bar as default
 $( ".searchWrapper" ).hide();
 

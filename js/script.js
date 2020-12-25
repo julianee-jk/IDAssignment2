@@ -27,6 +27,27 @@ const colors = {
     steel: '#b8b8d0'
 };
 
+const realColors = {
+    fire: '#F08030', 
+    grass: '#78C850', 
+    electric: '#F8D030', 
+    water: '#6890F0', 
+    ground: '#E0C068', 
+    rock: '#B8A038', 
+    fairy: '#EE99AC', 
+    poison: '#A040A0', 
+    bug: '#A8B820', 
+    dragon: '#7038F8', 
+    psychic: '#F85888', 
+    flying: '#A890F0',
+    fighting: '#C03028', 
+    normal: '#A8A878',
+    ice: '#98D8D8',
+    ghost: '#705898',
+    dark: '#705848',
+    steel: '#B8B8D0'
+}
+
 // Check every user key input
 searchBar.addEventListener('keyup', (e) => {
     // Force user input to lowercase
@@ -57,6 +78,8 @@ const fetchPokemon = (startPokeCount, endPokeCount) => {
             name: data.name,
             image: data.sprites['front_default'],
             type: data.types.map((type) => type.type.name).join(', '),
+            typeColor: data.types.map((type) => 
+            `<span style="background-color: ${realColors[type.type.name]}" class="poke-type-name">${type.type.name}</span>`).join(' '),
             ability: data.abilities.map((ability) => ability.ability.name).join(', '),
             stats: data.stats.map((stat) => `${stat.stat.name}: ${stat.base_stat}`).join(', '),
             weight: data.weight,
@@ -75,7 +98,7 @@ const displayPokemon = (pokemon) => {
         <div class="poke-info">
             <span class="poke-id">#${indivPoke.id.toString().padStart(3, '0')}</span>
             <h3 class="poke-name">${indivPoke.name}</h3>
-            <small class="poke-type">Type: ${indivPoke.type}
+            <small class="poke-type">${indivPoke.typeColor}
             </small>
         </div>
     </li>
@@ -93,8 +116,10 @@ const selectPokemon = async (id) => {
 const displayPopup = (indivPoke) => {
     const image = indivPoke.sprites['front_default']
     const type = indivPoke.types.map((type) => type.type.name).join(', ')
+    const typeColor = indivPoke.types.map((type) => 
+    `<span style="background-color: ${realColors[type.type.name]}" class="poke-type-name">${type.type.name}</span>`).join(' ')
     const ability = indivPoke.abilities.map((ability) => ability.ability.name).join(', ')
-    const stats = indivPoke.stats.map((stat) => `${stat.stat.name}: ${stat.base_stat}`).join(', ')
+    const stats = indivPoke.stats.map((stat) => `<b>${stat.stat.name}</b>: ${stat.base_stat}`).join('<br>')
     const pokemonPopupString = `
     <div class="popup">
             <button class="closeBtn" id="closeBtn" onclick="closePopup()">✖</button>
@@ -103,10 +128,12 @@ const displayPopup = (indivPoke) => {
                 <div class="poke-info">
                     <span class="poke-id">#${indivPoke.id.toString().padStart(3, '0')}</span>
                     <h3 class="poke-name">${indivPoke.name}</h3>
-                    <small class="poke-type">Type: ${type}<br>
+                    <small class="poke-type">${typeColor}<br>
                     Abilities: ${ability}<br>
-                    ${stats}<br>
                     Height: ${indivPoke.height} | Weight: ${indivPoke.weight}
+                    <div class="poke-stats">
+                        ${stats}<br>
+                    </div>
                     </small>
                 </div>
             </div>

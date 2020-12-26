@@ -214,6 +214,18 @@ body {
     text-align: center;
 }
 
+/* Pokemon Search Bar */
+#searchBarItems {
+    width: 70%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    padding: 5px 10px;
+    font-size: 12px;
+    margin: 2em 0 0 5em;
+    text-align: center;
+}
+
 /* ---------------------------- Itemdex Page ---------------------------- */
 /* Pokemon Item Image */
 .poke-image {

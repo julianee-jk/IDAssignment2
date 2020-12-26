@@ -25,21 +25,39 @@ const realColors = {
     ghost: '#705898',dark: '#705848',steel: '#B8B8D0'
 }
 
+function isInPage(node) {
+    return (node === document.body) ? false : document.body.contains(node);
+  }
+
 // Check every user key input
 searchBar.addEventListener('keyup', (e) => {
     // Force user input to lowercase
     const searchTarget = e.target.value.toLowerCase();
     const searchTarget2 = e.target.value;
-    // Search for Pokemon Name & Type (To add ID)
-    const filteredPokemons = pokemon.filter((indivPoke) => {
-        return (
-            indivPoke.name.toLowerCase().includes(searchTarget) || 
-            indivPoke.type.toLowerCase().includes(searchTarget) ||
-            indivPoke.ability.toLowerCase().includes(searchTarget) ||
-            indivPoke.id == searchTarget2
-        );
-    });
-    displayPokemon(filteredPokemons);
+
+    if (isInPage(pokedex)) {
+        // Search for Pokemon Name & Type (To add ID)
+        const filteredPokemons = pokemon.filter((indivPoke) => {
+            return (
+                indivPoke.name.toLowerCase().includes(searchTarget) || 
+                indivPoke.type.toLowerCase().includes(searchTarget) ||
+                indivPoke.ability.toLowerCase().includes(searchTarget) ||
+                indivPoke.id == searchTarget2
+            );
+        });
+        displayPokemon(filteredPokemons);
+    }  
+    if (isInPage(itemdex)) {
+        // Search for Item ID & Name
+        const filteredItems = pokeItem.filter((indivItem) => {
+            return (
+                indivItem.name.toLowerCase().includes(searchTarget) || 
+                indivItem.id == searchTarget2
+            );
+        });
+        displayItem(filteredItems);
+    }
+    
 });
 
 // Fetch Items
@@ -47,7 +65,7 @@ const fetchItems = async () => {
     const url = `https://pokeapi.co/api/v2/item?limit=954`;
     const res = await fetch(url);
     const data = await res.json();
-    const pokeItem = data.results.map( (result, index) => 
+    pokeItem = data.results.map( (result, index) => 
     ({
         ...result,
         id: index + 1,
@@ -170,13 +188,18 @@ const closePopup = () => {
     const popup = document.querySelector('.popup');
     popup.parentElement.removeChild(popup);
 };
+
+
 // On click change region
 $(document).ready(function(){
-    
-    // Hide search bar as default
-    $( ".searchWrapper" ).hide();
+    if (isInPage(pokedex)) {
+        // Hide search bar as default
+        $( ".searchWrapper" ).hide();
+    }
+    else {
+        $( ".searchWrapper" ).show();
+    }
     fetchItems();
-    $( ".searchWrapper" ).show();
     // All regions
     $('#allregions').on('click',function(event){
         fetchPokemon(1,898);

@@ -29,6 +29,7 @@ function isInPage(node) {
     return (node === document.body) ? false : document.body.contains(node);
   }
 
+// -------------------------------------------- SEARCH BAR --------------------------------------------
 // Check every user key input
 searchBar.addEventListener('keyup', (e) => {
     // Force user input to lowercase
@@ -59,7 +60,7 @@ searchBar.addEventListener('keyup', (e) => {
     }
     
 });
-
+// -------------------------------------------- ITEMS --------------------------------------------
 // Fetch Items
 const fetchItems = async () => {
     const url = `https://pokeapi.co/api/v2/item?limit=954`;
@@ -79,7 +80,7 @@ const fetchItems = async () => {
 // Display Pokemon as HTML String
 const displayItem = (pokeitem) => {
     const itemHTMLString = pokeitem.map(indivItem => `
-    <li class="poke-card">  
+    <li class="poke-card" onclick="selectItem(${indivItem.id})">  
         <img class="poke-image" src="${indivItem.image}" alt="${indivItem.name}" />
         <div class="poke-info">
         <span class="poke-id">#${indivItem.id.toString().padStart(3, '0')}</span>
@@ -90,6 +91,42 @@ const displayItem = (pokeitem) => {
     itemdex.innerHTML = itemHTMLString;
 };
 
+// Select Item ID 
+const selectItem = async (id) => {
+    const url = `https://pokeapi.co/api/v2/item/${id}`;
+    const res = await fetch(url);
+    const indivItem = await res.json();
+    displayItemPopup(indivItem);
+}
+
+// Display Item Popup 
+const displayItemPopup = (indivItem) => {
+    const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${indivItem.name}.png`
+    const effect = indivItem.effect_entries.map((effect) => effect.short_effect)
+    const category = indivItem.category.name
+    const itemPopupString = `
+    <div class="popup">
+        <button class="closeBtn" id="closeBtn" onclick="closePopup()">✖</button>
+        <div class="popup-card"> 
+            <div class="popup-image-container">
+                <img class="item-popup-image" src="${image}" alt="${indivItem.name}">              
+            </div>
+            <div class="poke-popup-info">
+                <div class="poke-id">#${indivItem.id.toString().padStart(3, '0')}</div>
+                <h3 class="poke-name">${indivItem.name}</h3>
+                <div class="poke-item-details">
+                    <b>Category:</b> <span style="text-transform: capitalize">${category}</span><br>
+                    ${effect}
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+    itemdex.innerHTML = itemPopupString + itemdex.innerHTML;
+};
+
+
+// -------------------------------------------- POKEMON --------------------------------------------
 // Fetch Pokemon according to region
 const fetchPokemon = (startPokeCount, endPokeCount) => {
     const promises = [];

@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 
+/* Add scroll animation through whole HTML */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Main body background & Margin */
 body {
 	background: linear-gradient(to right, #c6c4d8, #EFEFBB);
@@ -64,6 +69,13 @@ body {
 
 /* Each individual Pokemon with details */
 #pokedex {
+    padding-inline-start: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 25px;
+}
+
+#itemdex {
     padding-inline-start: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -136,10 +148,12 @@ body {
 /* Pokemoon base stats */
 .poke-stats {
     text-align: left;
-    padding: 5px 11px 5px 11px;
+    padding: 8px 11px 8px 11px;
     margin-top: 5px;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 15px;
+    width: auto;
+    height: auto;
     background-color: rgba(255, 255, 255, 0.6);
 }
 
@@ -190,14 +204,36 @@ body {
 
 /* Pokemon Search Bar */
 #searchBar {
-    width: 80%;
+    width: 70%;
     height: 40px;
     border-radius: 10px;
     border: 1px solid #000000;
     padding: 5px 10px;
     font-size: 12px;
-    margin: 2em auto;
+    margin: 2em 0 0 5em;
     text-align: center;
+}
+
+/* Pokemon Search Bar */
+#searchBarID {
+    width: 15%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    padding: 5px 10px;
+    font-size: 12px;
+    margin: 2em 5em 0 1em;
+    text-align: center;
+}
+
+/* ---------------------------- Itemdex Page ---------------------------- */
+/* Pokemon Item Image */
+.poke-image {
+    background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 80%;
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
 }
 
 /* ---------------------------- Popup Menu ---------------------------- */
@@ -241,6 +277,11 @@ body {
 /* Image container of default & shiny pokemon in Popup */
 .popup-image-container {
     margin-bottom: 0;
+}
+
+.poke-popup-info {
+    margin-top: 20px;
+    padding: 0 5em 0 5em;
 }
 
 /* Design & Shiny Text Design */

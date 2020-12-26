@@ -1,5 +1,6 @@
 // Create constant of pokedex ID
 const pokedex = document.getElementById('pokedex');
+const itemdex = document.getElementById('itemdex');
 // Create constant of searchBar ID
 const searchBar = document.getElementById('searchBar');
 //Get the button
@@ -27,12 +28,14 @@ const realColors = {
 searchBar.addEventListener('keyup', (e) => {
     // Force user input to lowercase
     const searchTarget = e.target.value.toLowerCase();
+    const searchTarget2 = e.target.value;
     // Search for Pokemon Name & Type (To add ID)
     const filteredPokemons = pokemon.filter((indivPoke) => {
         return (
             indivPoke.name.toLowerCase().includes(searchTarget) || 
             indivPoke.type.toLowerCase().includes(searchTarget) ||
-            indivPoke.ability.toLowerCase().includes(searchTarget)
+            indivPoke.ability.toLowerCase().includes(searchTarget) ||
+            indivPoke.id == searchTarget2
         );
     });
     displayPokemon(filteredPokemons);
@@ -110,15 +113,15 @@ const displayPopup = (indivPoke) => {
                 <img class="popup-image" src="${image}" alt="${indivPoke.name}">              
                 <img class="popup-image" src="${shinyimage}" alt="${indivPoke.name}_shiny">
             </div>
-            <div class="poke-info">
+            <div class="poke-popup-info">
                 <div class="poke-id">#${indivPoke.id.toString().padStart(3, '0')}</div>
                 <h3 class="poke-name">${indivPoke.name}</h3>
                 <div class="poke-type">
                     <small>${typeColor}</small>
                 </div>
                 <small class="poke-details">
-                    Abilities: ${ability}<br>
-                    Height: ${indivPoke.height/10}m | Weight: ${indivPoke.weight/10}kg
+                    <b>Abilities:</b> ${ability}<br>
+                    <b>Height:</b> ${indivPoke.height/10}m | <b>Weight:</b> ${indivPoke.weight/10}kg
                     <div class="poke-stats">
                         ${stats}<br>
                     </div>
@@ -130,17 +133,17 @@ const displayPopup = (indivPoke) => {
     pokedex.innerHTML = pokemonPopupString + pokedex.innerHTML;
 };
 
+
 // Close Pokemon Popup 
 const closePopup = () => {
     const popup = document.querySelector('.popup');
     popup.parentElement.removeChild(popup);
 };
-// Hide search bar as default
-$( ".searchWrapper" ).hide();
-
 // On click change region
 $(document).ready(function(){
     
+    // Hide search bar as default
+    $( ".searchWrapper" ).hide();
     // All regions
     $('#allregions').on('click',function(event){
         fetchPokemon(1,898);

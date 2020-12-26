@@ -41,6 +41,41 @@ searchBar.addEventListener('keyup', (e) => {
     displayPokemon(filteredPokemons);
 });
 
+// Fetch Items
+const fetchItems = () => {
+    const promises = [];
+    for (let i = 1; i <= 666; i++) {
+        const url = `https://pokeapi.co/api/v2/item/${i}`;
+        promises.push(fetch(url).then(res => res.json()));
+    };
+    // Make use of Promise.All to load Itemdex faster
+    Promise.all(promises).then(results => {
+        pokeitem = results.map(item => ({
+            id: item.id,
+            name: item.name,
+            image: item.sprites['default'],
+            effect: item.effect_entries.map((effect) => effect.effect.short_effect).join(', '),
+
+        }));
+        displayItem(pokeitem);
+    });
+};
+
+// Display Pokemon as HTML String
+const displayItem = (pokeitem) => {
+    const itemHTMLString = pokeitem.map(indivItem => `
+    <li class="poke-card">  
+        <img class="poke-image" src="${indivItem.image}" alt="${indivItem.name}" />
+        <div class="poke-info">
+        <span class="poke-id">#${indivItem.id.toString().padStart(3, '0')}</span>
+        <h3 class="poke-name">${indivItem.name}</h3>
+    </div>
+    </li>
+    `).join('');
+    itemdex.innerHTML = itemHTMLString;
+};
+fetchItems();
+
 // Fetch Pokemon according to region
 const fetchPokemon = (startPokeCount, endPokeCount) => {
     const promises = [];

@@ -3,6 +3,7 @@ const pokedex = document.getElementById('pokedex');
 const itemdex = document.getElementById('itemdex');
 // Create constant of searchBar ID
 const searchBar = document.getElementById('searchBar');
+const searchBarItems = document.getElementById('searchBarItems');
 //Get the button
 const topButton = document.getElementById("topBtn");
 
@@ -42,23 +43,19 @@ searchBar.addEventListener('keyup', (e) => {
 });
 
 // Fetch Items
-const fetchItems = () => {
-    const promises = [];
-    for (let i = 1; i <= 666; i++) {
-        const url = `https://pokeapi.co/api/v2/item/${i}`;
-        promises.push(fetch(url).then(res => res.json()));
-    };
-    // Make use of Promise.All to load Itemdex faster
-    Promise.all(promises).then(results => {
-        pokeitem = results.map(item => ({
-            id: item.id,
-            name: item.name,
-            image: item.sprites['default'],
-            effect: item.effect_entries.map((effect) => effect.effect.short_effect).join(', '),
-
-        }));
-        displayItem(pokeitem);
-    });
+const fetchItems = async () => {
+    const url = `https://pokeapi.co/api/v2/item?limit=954`;
+    const res = await fetch(url);
+    const data = await res.json();
+    const pokeItem = data.results.map( (result, index) => 
+    ({
+        ...result,
+        id: index + 1,
+        name: result.name,
+        // image: result.sprites['default']
+        image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${result.name}.png`
+    }));
+    displayItem(pokeItem);
 };
 
 // Display Pokemon as HTML String
@@ -74,7 +71,6 @@ const displayItem = (pokeitem) => {
     `).join('');
     itemdex.innerHTML = itemHTMLString;
 };
-fetchItems();
 
 // Fetch Pokemon according to region
 const fetchPokemon = (startPokeCount, endPokeCount) => {
@@ -179,6 +175,8 @@ $(document).ready(function(){
     
     // Hide search bar as default
     $( ".searchWrapper" ).hide();
+    fetchItems();
+    $( ".searchWrapper" ).show();
     // All regions
     $('#allregions').on('click',function(event){
         fetchPokemon(1,898);

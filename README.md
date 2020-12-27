@@ -112,6 +112,9 @@ The following links below are all the links of social medias, images, albums etc
 1. This API has allowed me to gather information of the Pokemon franchise for my website as well as having proper documentation on how to make use of the API.
 [PokeAPI](https://pokeapi.co/)
 
+1. The official Pokemon Pokedex website that inspired me for the Pokedex on my website.
+[Official Pokemon - Pokedex](https://www.pokemon.com/us/pokedex/)
+
 1. The Reactiflux discord members has helped me a little bit with my code when I am having some trouble.
 [Reactiflux](https://www.reactiflux.com/)
 

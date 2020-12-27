@@ -25,6 +25,7 @@ const realColors = {
     ghost: '#705898',dark: '#705848',steel: '#B8B8D0'
 }
 
+// Function to check if ID is in page
 function isInPage(node) {
     return (node === document.body) ? false : document.body.contains(node);
   }
@@ -179,13 +180,19 @@ const selectPokemon = async (id) => {
 
 // Display Pokemon Popup 
 const displayPopup = (indivPoke) => {
+    //   <b>${stat.stat.name}</b>: ${stat.base_stat}`).join('<br>')
     const image = indivPoke.sprites['front_default']
     const shinyimage = indivPoke.sprites['front_shiny']
     const type = indivPoke.types.map((type) => type.type.name).join(', ')
     const typeColor = indivPoke.types.map((type) => 
     `<span style="background-color: ${realColors[type.type.name]}" class="poke-type-name">${type.type.name}</span>`).join(' ')
     const ability = indivPoke.abilities.map((ability) => ability.ability.name).join(', ')
-    const stats = indivPoke.stats.map((stat) => `<b>${stat.stat.name}</b>: ${stat.base_stat}`).join('<br>')
+    const stats = indivPoke.stats.map((stat) => `
+        <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: ${stat.base_stat}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="200">
+            ${stat.stat.name}: ${stat.base_stat}
+            </div>
+        </div>`).join('<div class="poke-stats-bar"></div>')
     const pokemonPopupString = `
     <div class="popup">
         <button class="closeBtn" id="closeBtn" onclick="closePopup()">✖</button>

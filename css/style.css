@@ -5,6 +5,7 @@
 /* Add scroll animation through whole HTML */
 html {
     scroll-behavior: smooth;
+    user-select: none;
 }
 
 /* Main body background & Margin */
@@ -148,11 +149,11 @@ body {
 /* Pokemoon base stats */
 .poke-stats {
     text-align: left;
-    padding: 8px 11px 8px 11px;
+    padding: 12px 11px 0 11px;
     margin-top: 5px;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 /* Pokemon Details (Abilities, Height, Weight, Base-Stats*/
@@ -287,6 +288,10 @@ body {
 
 .poke-popup-info {
     margin-top: 20px;
+}
+
+.poke-stats-bar {
+    margin-top: 5px;
 }
 
 /* Design & Shiny Text Design */

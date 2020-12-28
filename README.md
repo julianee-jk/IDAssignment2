@@ -30,6 +30,7 @@ All the webpages share the same designs for the header page and footer.
 
 * **Homepage - Index Page**
     * Home introduction text box
+    * Mobile responsiveness for all devices except Galaxy Fold.
 
 * **Pokedex**
     * Pokemon will show depending on the regions.
@@ -37,18 +38,18 @@ All the webpages share the same designs for the header page and footer.
     * Popup info menu when clicked on individual Pokemon
         * Progress bar in Popup info to display stats
     * Back to top function.
+    * Mobile responsiveness for all devices except Galaxy Fold.
 
 * **Itemdex**
     * All items will be displayed.
     * Live filtering search bar
     * Popup info menu when clicked on individual Items
     * Back to top function.
+    * Mobile responsiveness for all devices except Galaxy Fold.
 
 ### Features to implement
-* Fix mobile responsiveness for mobile devices
-* Evolution chart in Pokemon popup menu
-* Improve website layout for Internet Explorer
-* Improve website layout for Samsung Galaxy Fold
+* Fixed mobile responsiveness for Galaxy Fold
+* Add evolution/moves pages.
 
 ## Technology Used
 These are all the languages and tools which I have used to construct this project.
@@ -81,10 +82,39 @@ These are all the languages and tools which I have used to construct this projec
 ### Browsers Tested
 
 * [Brave](https://brave.com/)
+* [Microsoft Edge](https://www.microsoft.com/en-us/edge)
+* [Google Chrome](https://www.google.com/chrome/?brand=BNSD&gclsrc=ds&gclsrc=ds)
+* [Modzilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
+* [Internet Explorer](https://www.microsoft.com/en-us/download/internet-explorer.aspx)
+    * JavaScript animations and certain container CSS does not seem to work on this browser.
+* [Opera](https://www.opera.com/)
 
 ### Mobile Devices Tested
 
-* To be tested.
+**Motorola Moto G4**
+    * Mobile responsiveness works well on this device.
+* **Samsung Galaxy S5**
+    * Mobile responsiveness works well on this device.
+* **Google Pixel 2**
+    * Mobile responsiveness works well on this device.
+* **Google Pixel 2 XL**
+    * Mobile responsiveness works well on this device.
+* **iPhone 5/SE**
+    * Mobile responsiveness works well on this device.
+* **iPhone 6/7/8**
+    * Mobile responsiveness works well on this device.
+* **iPhone 6/7/8 Plus**
+    * Mobile responsiveness works well on this device.
+* **iPhone X**
+    * Mobile responsiveness works well on this device.
+* **iPad**
+    * Mobile responsiveness works well on this device.
+* **iPad Pro**
+    * Mobile responsiveness works well on this device. 
+* **Surface Duo**
+    * Mobile responsiveness works well on this device.
+* **Samsung Galaxy Fold**
+    * Black background of Popup menu does not cover whole screen.
 
 ## Credits
 

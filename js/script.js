@@ -248,63 +248,63 @@ $(document).ready(function(){
     $('#allregions').on('click',function(event){
         fetchPokemon(1,898);
         document.getElementById("region_title").innerHTML = "All Regions";
-        $( ".region-box" ).hide();
+        $( ".maintext-box" ).hide();
         $( ".searchWrapper .box" ).show();
       });
     // Kanto Region (Gen 1)
     $('#kanto').on('click',function(event){
       fetchPokemon(1,151);
       document.getElementById("region_title").innerHTML = "Kanto Region";
-      $( ".region-box" ).hide();
+      $( ".maintext-box" ).hide();
       $( ".searchWrapper" ).show();
     });
     // Johto Region (Gen 2)
     $('#johto').on('click',function(event){ 
       fetchPokemon(152,251);
       document.getElementById("region_title").innerHTML = "Johto Region";
-      $( ".region-box" ).hide();
+      $( ".maintext-box" ).hide();
       $( ".searchWrapper" ).show();
     });
     // Hoenn Region (Gen 3)
     $('#hoenn').on('click',function(event){
       fetchPokemon(252,386);
       document.getElementById("region_title").innerHTML = "Hoenn Region";
-      $( ".region-box" ).hide();
+      $( ".maintext-box" ).hide();
       $( ".searchWrapper" ).show();
     });
     // Sinnoh Region (Gen 4)
     $('#sinnoh').on('click',function(event){
         fetchPokemon(387,493);
         document.getElementById("region_title").innerHTML = "Sinnoh Region";
-        $( ".region-box" ).hide();
+        $( ".maintext-box" ).hide();
         $( ".searchWrapper" ).show();
       });
     // Unova Region (Gen 5)
     $('#unova').on('click',function(event){
         fetchPokemon(494,649);
         document.getElementById("region_title").innerHTML = "Unova Region";
-        $( ".region-box" ).hide();
+        $( ".maintext-box" ).hide();
         $( ".searchWrapper" ).show();
         });
     // Kalos Region (Gen 6)
     $('#kalos').on('click',function(event){
         fetchPokemon(650,721);
         document.getElementById("region_title").innerHTML = "Kalos Region";
-        $( ".region-box" ).hide();
+        $( ".maintext-box" ).hide();
         $( ".searchWrapper" ).show();
         });
     // Alola Region (Gen 7)
     $('#alola').on('click',function(event){
         fetchPokemon(722,809);
         document.getElementById("region_title").innerHTML = "Alola Region";
-        $( ".region-box" ).hide();
+        $( ".maintext-box" ).hide();
         $( ".searchWrapper" ).show();
         });
     // Galar Region (Gen 8)
     $('#galar').on('click',function(event){
         fetchPokemon(810,898);
         document.getElementById("region_title").innerHTML = "Galar Region";
-        $( ".region-box" ).hide();
+        $( ".maintext-box" ).hide();
         $( ".searchWrapper" ).show();
         });
   });

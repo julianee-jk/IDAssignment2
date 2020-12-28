@@ -31,8 +31,8 @@ body {
 }
 
 /* ---------------------------- Index Page ---------------------------- */
-/* Homepage text box  */
-.home-box {
+/* Main text box  */
+.maintext-box {
     margin: 3em auto;
     background-color: white;
     width: 90%;
@@ -41,8 +41,8 @@ body {
 	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
 }
 
-/* Homepage text box info */
-.home-box-info {
+/* Main text box info */
+.maintext-box-info {
     padding: 4em;
     text-align: center;
 }
@@ -152,7 +152,7 @@ body {
 
 
 /* Region button box */
-.button_box {
+.button-box {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -160,24 +160,8 @@ body {
 }
 
 /* Region button */
-.region_btn {
+.region-btn {
     margin-right: 10px;
-}
-
-/* Container to store region info */
-.region-box {
-    margin: 3em auto;
-    background-color: white;
-    width: 90%;
-    height: auto;
-    border-radius: 20px;
-	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
-}
-
-/* Region info text */
-.region-box-info {
-    padding: 4em;
-    text-align: center;
 }
 
 /* Container to store Pokemon Search Bar */
@@ -195,7 +179,7 @@ body {
     border: 1px solid #000000;
     padding: 5px 10px;
     font-size: 12px;
-    margin: 2em 0 0 5em;
+    margin-top: 2em;
     text-align: center;
 }
 
@@ -358,3 +342,43 @@ body {
   #topBtn:hover {
     background-color: #555;
   }
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 600px) {
+    /* Main text box > Mobile */
+    .maintext-box {
+        margin: 3em auto;
+        background-color: white;
+        width: 90%;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+    }
+
+    /* Main text box info > Mobile */
+    .maintext-box-info {
+        padding: 3em;
+        text-align: center;
+        font-size: 13px;
+    }
+
+    .button-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1em 1em 0 1em;
+        flex-wrap: wrap;
+    }
+    /* Region button */
+    .region-btn {
+        margin: 5px 10px 0 0 ;
+        flex: 1 1 160px;
+    }
+
+    /* Container of all Poke-cards */
+    .poke-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

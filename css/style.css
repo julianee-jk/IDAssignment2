@@ -30,20 +30,6 @@ body {
     height: 60px;
 }
 
-/* Footer design */
-.footer {
-    height: auto;
-    padding: 2em;
-    background-color: black;
-}
-
-/* Footer info box */
-.footer-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
 /* ---------------------------- Index Page ---------------------------- */
 /* Homepage text box  */
 .home-box {

@@ -343,6 +343,38 @@ body {
     background-color: #555;
   }
 
+/* MOBILE RESPONSIVENESS FOR iPad Pro*/
+@media only screen and (max-width: 1050px) {
+    /* Popup Card Design */
+    .popup-card {
+        list-style: none;
+        margin: -44em 0 0 0;
+        padding: 2em;
+        background-color: #f4f4f4;
+        color: #222;
+        display: grid;
+        border-radius: 20px;
+        box-shadow: 0 3px 15px rgba(255, 255, 255, 0.5);
+        border: 3px solid rgb(255, 255, 255);
+    }
+}
+
+/* MOBILE RESPONSIVENESS FOR iPad Pro*/
+@media only screen and (max-width: 800px) {
+    /* Popup Card Design */
+    .popup-card {
+        list-style: none;
+        margin: -22em 0 0 0;
+        padding: 2em;
+        background-color: #f4f4f4;
+        color: #222;
+        display: grid;
+        border-radius: 20px;
+        box-shadow: 0 3px 15px rgba(255, 255, 255, 0.5);
+        border: 3px solid rgb(255, 255, 255);
+    }
+}
+
 /* Mobile Responsiveness */
 @media only screen and (max-width: 650px) {
     /* Main text box > Mobile */
@@ -441,3 +473,36 @@ body {
         transition: transform 100ms;
     }
 }
+
+/* MOBILE RESPONSIVENESS FOR iPhone 6/7/8 Plus & Pixel 2*/
+@media only screen and (max-height: 740px) {
+    /* Popup Card Design */
+    .popup-card {
+        list-style: none;
+        margin: -2em 0 0 0;
+        padding: 2em;
+        background-color: #f4f4f4;
+        color: #222;
+        display: grid;
+        border-radius: 20px;
+        box-shadow: 0 3px 15px rgba(255, 255, 255, 0.5);
+        border: 3px solid rgb(255, 255, 255);
+    }
+}
+
+/* MOBILE RESPONSIVENESS FOR iPhone 6/7/8 & Galaxy S5 & Moto G4*/
+@media only screen and (max-height: 700px) {
+    /* Popup Card Design */
+    .popup-card {
+        list-style: none;
+        margin: 2.5em 0 0 0;
+        padding: 2em;
+        background-color: #f4f4f4;
+        color: #222;
+        display: grid;
+        border-radius: 20px;
+        box-shadow: 0 3px 15px rgba(255, 255, 255, 0.5);
+        border: 3px solid rgb(255, 255, 255);
+    }
+}
+

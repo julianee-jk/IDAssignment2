@@ -344,7 +344,7 @@ body {
   }
 
 /* Mobile Responsiveness */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     /* Main text box > Mobile */
     .maintext-box {
         margin: 3em auto;
@@ -375,60 +375,44 @@ body {
         flex: 1 1 160px;
     }
 
-    /* Container of all Poke-cards */
     .poke-box {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
-    /* Pokemon Image */
-    .poke-image {
-        background-color: rgba(255, 255, 255, 0.6);
-        border-radius: 80%;
-        height: 100px;
-        width: 100px;
-        margin: 0 auto;
-    }
-
-    /* Display popup background */
-    .popup {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 80vh;
-        width: 100vw;
-        display: flex;
-        background: none;
-        justify-content: center;
-        align-items: center;
-    }
+    /* Popup > Moobile */
     /* Image container of default & shiny pokemon in Popup */
     .popup-image-container {
         margin-bottom: 0;
         display: flex;
         justify-content: center;
         align-items: center;
-    }  
-
-    /* Popup Card Design */
-    .popup-card {
-        list-style: none;
-        background-color: #f4f4f4;
-        color: #222;
-        display: grid;
-        text-align: center;
-        height: 100%;
-        border-radius: 20px;
-        box-shadow: 0 3px 15px rgba(255, 255, 255, 0.5);
-        border: 3px solid rgb(255, 255, 255);
+    }
+    /* Pokemon image in Popup Menu */
+    .popup-image {
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 90%;
+        height: 120px;
+        width: 120px;
+    }
+    /* Display popup background */
+    .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 85vh;
+        width: 100vw;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     /* Close button for pop menu */
     #closeBtn {
         position: absolute;
-        top: -10px;
-        right: -25px;
+        top: 5px;
+        right: -20px;
     }
 
     /* Close button design */
@@ -440,13 +424,4 @@ body {
         border-radius: 3px;
         transition: transform 100ms;
     }
-
-    /* Design & Shiny Text Design */
-    .default-shiny-text {
-        font-family: 'Staatliches', cursive;
-        font-weight: 400;
-        letter-spacing: 2px;
-        padding-top: 2em;
-    }
- 
 }

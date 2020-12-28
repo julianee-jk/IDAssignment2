@@ -344,10 +344,10 @@ body {
   }
 
 /* Mobile Responsiveness */
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 650px) {
     /* Main text box > Mobile */
     .maintext-box {
-        margin: 3em auto;
+        margin: 1.2em auto;
         background-color: white;
         width: 90%;
         height: auto;
@@ -400,7 +400,7 @@ body {
         position: fixed;
         top: 0;
         left: 0;
-        height: 85vh;
+        height: 100vh;
         width: 100vw;
         background-color: black;
         display: flex;
@@ -408,6 +408,23 @@ body {
         align-items: center;
     }
 
+    /* Popup Card Design */
+    .popup-card {
+        list-style: none;
+        margin: -7em 0 0 0;
+        padding: 2em;
+        background-color: #f4f4f4;
+        color: #222;
+        display: grid;
+        border-radius: 20px;
+        box-shadow: 0 3px 15px rgba(255, 255, 255, 0.5);
+        border: 3px solid rgb(255, 255, 255);
+    }
+
+    /* Spacing between Design & Shiny Text Design */
+    .text-spacing {
+        margin-right: 4.4em;
+    }
     /* Close button for pop menu */
     #closeBtn {
         position: absolute;
@@ -420,7 +437,6 @@ body {
         background-color: rgb(255, 68, 0);
         padding: 5px 10px;
         color: white;
-        margin: 1em 2em 0 0;
         border-radius: 3px;
         transition: transform 100ms;
     }

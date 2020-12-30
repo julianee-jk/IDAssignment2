@@ -14,7 +14,7 @@ let pokemon = [];
 const colors = {
     fire: '#ffcccc', grass: '#DEFDE0', electric: '#FCF7DE', water: '#DEF3FD', ground: '#e6d7ae', 
     rock: '#dbd4b4', fairy: '#fceaff', poison: '#f5d3f5', bug: '#c3d1ba', dragon: '#97b3e6', 
-    psychic: '#ffdeed', flying: '#F5F5F5', fighting: '#e6c1ae', normal: '#F5F5F5', ice: '#b4d9d9',
+    psychic: '#ffdeed', flying: '#e1d7fc', fighting: '#e6c1ae', normal: '#F5F5F5', ice: '#d5f7f7',
     ghost: '#ada3bf', dark: '#ab9c93', steel: '#b8b8d0'
 };
 
@@ -60,12 +60,13 @@ searchBar.addEventListener('keyup', (e) => {
         });
         displayItem(filteredItems);
     }
-    
+
     if (isInPage(movedex)) {
         // Search for Item ID & Name
         const filteredMoves = pokeMove.filter((indivMove) => {
             return (
                 indivMove.name.toLowerCase().includes(searchTarget) || 
+                indivMove.type.name.toLowerCase().includes(searchTarget) || 
                 indivMove.id == searchTarget2
             );
         });
@@ -138,32 +139,39 @@ const displayItemPopup = (indivItem) => {
 };
 // -------------------------------------------- MOVES --------------------------------------------
 
-// Fetch Items
+// Fetch Moves
 const fetchMoves = async () => {
     const url = `https://pokeapi.co/api/v2/move?limit=813`;
     const res = await fetch(url);
     const data = await res.json();
-    pokeMove = data.results.map( (result, index) => 
-    ({
-        ...result,
-        id: index + 1,
-        name: result.name,
-    }));
-    displayMove(pokeMove);
-};
+    pokeMove = await Promise.all(
+      data.results.map(async (result, index) => {
+        const moveDetailsResult = await fetch(result.url);
+        const moveDetailsJSON = await moveDetailsResult.json();
+        return {
+          ...moveDetailsJSON,
+          id: index + 1,
+          name: result.name,
+        };
+      })
+    );
+    displayMove(pokeMove)
+  };
 
 // Display Pokemon as HTML String
 const displayMove = (pokeMove) => {
     const moveHTMLString = pokeMove.map(indivMove => `
-    <li class="poke-card" onclick="selectMove(${indivMove.id})" style="background-color: rgb(196, 196, 196)">  
+    <li class="poke-card" onclick="selectMove(${indivMove.id})" style="background-color: ${colors[indivMove.type.name]}">  
         <div class="poke-info">
-        <h3 class="poke-name">${indivMove.name}</h3>
-        <span class="poke-id">#${indivMove.id.toString().padStart(3, '0')}</span>
-        <div class="clickmore-text">Click for more</div>
-    </div>
+            <h3 class="poke-name">${indivMove.name}</h3>
+            <span class="poke-id">#${indivMove.id.toString().padStart(3, '0')}</span>
+            <div class="poke-type">
+                <small style="background-color: ${realColors[indivMove.type.name]}" class="poke-type-name">${indivMove.type.name}</small>
+            </div>   
+            <div class="clickmore-text">Click for more</div>
+        </div>
     </li>
     `).join('');
-    
     movedex.innerHTML = moveHTMLString;
 };
 
@@ -188,10 +196,10 @@ const displayMovePopup = (indivMove) => {
     const movePopupString = `
     <div class="popup">
         <button class="closeBtn" id="closeBtn" onclick="closePopup()">✖</button>
-        <div class="popup-card"  style="background-color: ${colors[type]}"> 
+        <div class="popup-card" style="background-color: ${colors[type]}"> 
             <div class="poke-popup-info">
-                <div class="poke-id">#${indivMove.id.toString().padStart(3, '0')}</div>
                 <h3 class="poke-name">${indivMove.name}</h3>
+                <div class="poke-id">#${indivMove.id.toString().padStart(3, '0')}</div>
                 <div class="poke-item-details">
                     <div class="poke-type">
                         <span style="background-color: ${realColors[type]}" class="poke-type-name">${type}</span>

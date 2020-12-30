@@ -133,7 +133,7 @@ body {
     margin-top: 5px;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 15px;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 /* Pokemon Details (Abilities, Height, Weight, Base-Stats*/
@@ -224,7 +224,7 @@ body {
 }
 .clickmore-text {
     font-size: 12px;
-    color: grey;
+    color: rgb(109, 109, 109);
     font-style: italic;
     margin-top: 5px;
 }

@@ -26,6 +26,10 @@ const realColors = {
     ghost: '#705898',dark: '#705848',steel: '#B8B8D0'
 }
 
+const dmgColors = {
+    physical: '#e86458', special: '#4f5870', status: '#8c888c'
+}
+
 // Function to check if ID is in page
 function isInPage(node) {
     return (node === document.body) ? false : document.body.contains(node);
@@ -66,7 +70,7 @@ searchBar.addEventListener('keyup', (e) => {
         const filteredMoves = pokeMove.filter((indivMove) => {
             return (
                 indivMove.name.toLowerCase().includes(searchTarget) || 
-                indivMove.type.name.toLowerCase().includes(searchTarget) || 
+                indivMove.type.name.toLowerCase().includes(searchTarget) ||
                 indivMove.id == searchTarget2
             );
         });
@@ -96,9 +100,10 @@ const displayItem = (pokeitem) => {
     <li class="poke-card" onclick="selectItem(${indivItem.id})">  
         <img class="poke-image" src="${indivItem.image}" alt="${indivItem.name}" />
         <div class="poke-info">
-        <span class="poke-id">#${indivItem.id.toString().padStart(3, '0')}</span>
-        <h3 class="poke-name">${indivItem.name}</h3>
-    </div>
+            <span class="poke-id">#${indivItem.id.toString().padStart(3, '0')}</span>
+            <h3 class="poke-name">${indivItem.name}</h3>
+            <div class="clickmore-text">Click for more</div>
+        </div>
     </li>
     `).join('');
     itemdex.innerHTML = itemHTMLString;
@@ -191,7 +196,7 @@ const displayMovePopup = (indivMove) => {
     const power = indivMove.power
     const effect_chance = indivMove.effect_chance
     const priority = indivMove.priority
-    const dmg_class = indivMove.damage_class.name
+    const damage_class = indivMove.damage_class.name
     const effect = indivMove.effect_entries.map((effect) => effect.short_effect)
     const movePopupString = `
     <div class="popup">
@@ -200,17 +205,19 @@ const displayMovePopup = (indivMove) => {
             <div class="poke-popup-info">
                 <h3 class="poke-name">${indivMove.name}</h3>
                 <div class="poke-id">#${indivMove.id.toString().padStart(3, '0')}</div>
+                <div class="poke-type">
+                    <small style="background-color: ${realColors[type]}" class="poke-type-name">${type}</small>
+                </div> 
                 <div class="poke-item-details">
-                    <div class="poke-type">
-                        <span style="background-color: ${realColors[type]}" class="poke-type-name">${type}</span>
-                    </div>   
+                    <div class="damage-cat">
+                        <span style="background-color: ${dmgColors[damage_class]}" class="poke-type-name">${damage_class}</span>
+                    </div>
+                    <b>Power</b>: ${power}<br>
                     <b>Accuracy</b>: ${accuracy}<br>
                     <b>PP</b>: ${pp}<br>
-                    <b>Power</b>: ${power}<br>
                     <b>Priority</b>: ${priority}<br>
-                    <b>Effect Chance</b> ${effect_chance}<br>
-                    <b>Damage Class</b>: <span style="text-transform: capitalize">${dmg_class}</span><br>
-                    ${effect}
+                    <b>Effect Chance:</b> ${effect_chance}<br>
+                    <span style="color: #cc2543">${effect}</span>
                 </div>
             </div>
         </div>
@@ -218,6 +225,9 @@ const displayMovePopup = (indivMove) => {
     `;
     movedex.innerHTML = movePopupString + movedex.innerHTML;
 };
+// Damage Calculator
+
+
 // -------------------------------------------- POKEMON --------------------------------------------
 // Fetch Pokemon according to region
 const fetchPokemon = (startPokeCount, endPokeCount) => {
@@ -255,6 +265,7 @@ const displayPokemon = (pokemon) => {
             <span class="poke-id">#${indivPoke.id.toString().padStart(3, '0')}</span>
             <h3 class="poke-name">${indivPoke.name}</h3>
             <small class="poke-type">${indivPoke.typeColor}</small>
+            <div class="clickmore-text">Click for more</div>
         </div>
     </li>
     `).join('');
@@ -279,7 +290,7 @@ const displayPopup = (indivPoke) => {
     const ability = indivPoke.abilities.map((ability) => ability.ability.name).join(', ')
     const stats = indivPoke.stats.map((stat) => `
         <div class="progress">
-            <div class="progress-bar bg-info" role="progressbar" style="width: ${stat.base_stat}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="200">
+            <div class="progress-bar" role="progressbar" style="width: ${stat.base_stat/1.8}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="200">
             ${stat.stat.name}: ${stat.base_stat}
             </div>
         </div>`).join('<div class="poke-stats-bar"></div>')

@@ -228,6 +228,13 @@ body {
     font-style: italic;
     margin-top: 5px;
 }
+/* Pokemon Type */
+.damage-cat {
+    font-weight: normal;
+    color: #e3ffff;
+    text-transform: capitalize;
+    margin-bottom: 3px;
+}
 
 /* ---------------------------- Popup Menu ---------------------------- */
 /* Display popup background */

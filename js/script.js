@@ -1,4 +1,4 @@
-// Create constant of pokedex ID
+// Create constant of page IDs
 const pokedex = document.getElementById('pokedex');
 const itemdex = document.getElementById('itemdex');
 const movedex = document.getElementById('movedex');
@@ -26,6 +26,7 @@ const realColors = {
     ghost: '#705898',dark: '#705848',steel: '#B8B8D0'
 }
 
+// Colours for Damage Classes
 const dmgColors = {
     physical: '#e86458', special: '#4f5870', status: '#8c888c'
 }
@@ -66,7 +67,7 @@ searchBar.addEventListener('keyup', (e) => {
     }
 
     if (isInPage(movedex)) {
-        // Search for Item ID & Name
+        // Search for Move ID, Name & Type
         const filteredMoves = pokeMove.filter((indivMove) => {
             return (
                 indivMove.name.toLowerCase().includes(searchTarget) || 
@@ -94,7 +95,7 @@ const fetchItems = async () => {
     displayItem(pokeItem);
 };
 
-// Display Pokemon as HTML String
+// Display Item as HTML String
 const displayItem = (pokeitem) => {
     const itemHTMLString = pokeitem.map(indivItem => `
     <li class="poke-card" onclick="selectItem(${indivItem.id})">  
@@ -104,8 +105,7 @@ const displayItem = (pokeitem) => {
             <h3 class="poke-name">${indivItem.name}</h3>
             <div class="clickmore-text">Click for more</div>
         </div>
-    </li>
-    `).join('');
+    </li>`).join('');
     itemdex.innerHTML = itemHTMLString;
 };
 
@@ -138,8 +138,7 @@ const displayItemPopup = (indivItem) => {
                 </div>
             </div>
         </div>
-    </div>
-    `;
+    </div>`;
     itemdex.innerHTML = itemPopupString + itemdex.innerHTML;
 };
 // -------------------------------------------- MOVES --------------------------------------------
@@ -163,7 +162,7 @@ const fetchMoves = async () => {
     displayMove(pokeMove)
   };
 
-// Display Pokemon as HTML String
+// Display Move as HTML String
 const displayMove = (pokeMove) => {
     const moveHTMLString = pokeMove.map(indivMove => `
     <li class="poke-card" onclick="selectMove(${indivMove.id})" style="background-color: ${colors[indivMove.type.name]}">  
@@ -175,12 +174,11 @@ const displayMove = (pokeMove) => {
             </div>   
             <div class="clickmore-text">Click for more</div>
         </div>
-    </li>
-    `).join('');
+    </li>`).join('');
     movedex.innerHTML = moveHTMLString;
 };
 
-// Select Item ID 
+// Select Move ID 
 const selectMove = async (id) => {
     const url = `https://pokeapi.co/api/v2/move/${id}`;
     const res = await fetch(url);
@@ -188,7 +186,7 @@ const selectMove = async (id) => {
     displayMovePopup(indivMove);
 }
 
-// Display Item Popup 
+// Display Move Popup 
 const displayMovePopup = (indivMove) => {
     const accuracy = indivMove.accuracy
     const type = indivMove.type.name
@@ -212,22 +210,14 @@ const displayMovePopup = (indivMove) => {
                     <div class="damage-cat">
                         <span style="background-color: ${dmgColors[damage_class]}" class="poke-type-name">${damage_class}</span>
                     </div>
-                    <b>Power</b>: ${power}<br>
-                    <b>Accuracy</b>: ${accuracy}<br>
-                    <b>PP</b>: ${pp}<br>
-                    <b>Priority</b>: ${priority}<br>
-                    <b>Effect Chance:</b> ${effect_chance}<br>
-                    <span style="color: #cc2543">${effect}</span>
+                    <b>Power</b>: ${power}<br><b>Accuracy</b>: ${accuracy}<br><b>PP</b>: ${pp}<br><b>Priority</b>: ${priority}<br>
+                    <b>Effect Chance:</b> ${effect_chance}<br><span style="color: #cc2543">${effect}</span>
                 </div>
             </div>
         </div>
-    </div>
-    `;
+    </div>`;
     movedex.innerHTML = movePopupString + movedex.innerHTML;
 };
-// Damage Calculator
-
-
 // -------------------------------------------- POKEMON --------------------------------------------
 // Fetch Pokemon according to region
 const fetchPokemon = (startPokeCount, endPokeCount) => {
@@ -267,8 +257,7 @@ const displayPokemon = (pokemon) => {
             <small class="poke-type">${indivPoke.typeColor}</small>
             <div class="clickmore-text">Click for more</div>
         </div>
-    </li>
-    `).join('');
+    </li>`).join('');
     pokedex.innerHTML = pokemonHTMLString;
 };
 
@@ -289,11 +278,13 @@ const displayPopup = (indivPoke) => {
     `<span style="background-color: ${realColors[type.type.name]}" class="poke-type-name">${type.type.name}</span>`).join(' ')
     const ability = indivPoke.abilities.map((ability) => ability.ability.name).join(', ')
     const stats = indivPoke.stats.map((stat) => `
-        <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: ${stat.base_stat/1.8}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="200">
-            ${stat.stat.name}: ${stat.base_stat}
-            </div>
-        </div>`).join('<div class="poke-stats-bar"></div>')
+        <span class="progress-label">${stat.stat.name}:</span>
+        <div class="progress"> 
+            <span class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" style="width: ${stat.base_stat/1.8}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+            ${stat.base_stat}
+            </span>
+        </div>
+    `).join('<div class="poke-stats-bar"></div>')
     const pokemonPopupString = `
     <div class="popup">
         <button class="closeBtn" id="closeBtn" onclick="closePopup()">✖</button>
@@ -322,8 +313,7 @@ const displayPopup = (indivPoke) => {
                 </small>
             </div>
         </div>
-    </div>
-    `;
+    </div>`;
     pokedex.innerHTML = pokemonPopupString + pokedex.innerHTML;
 };
 
@@ -421,7 +411,7 @@ $(document).ready(function(){
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
     topButton.style.display = "block";
   } else {
     topButton.style.display = "none";

@@ -47,7 +47,7 @@ body {
     text-align: center;
 }
 
-/* ---------------------------- Region Page ---------------------------- */
+/* ---------------------------- Itemdex Page ---------------------------- */
 /* Container of all Poke-cards */
 .poke-box {
     padding: 2.4em 4em 0 4em;
@@ -150,7 +150,6 @@ body {
     margin-top: 0.5px;
 }
 
-
 /* Region button box */
 .button-box {
     display: flex;
@@ -213,6 +212,15 @@ body {
     width: 120px;
     margin: 0 auto;
 }
+/* ---------------------------- Movedex Page ---------------------------- */
+
+#movedex {
+    padding-inline-start: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 25px;
+}
+
 
 /* ---------------------------- Popup Menu ---------------------------- */
 /* Display popup background */

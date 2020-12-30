@@ -1,6 +1,7 @@
 // Create constant of pokedex ID
 const pokedex = document.getElementById('pokedex');
 const itemdex = document.getElementById('itemdex');
+const movedex = document.getElementById('movedex');
 // Create constant of searchBar ID
 const searchBar = document.getElementById('searchBar');
 const searchBarItems = document.getElementById('searchBarItems');
@@ -125,8 +126,62 @@ const displayItemPopup = (indivItem) => {
     `;
     itemdex.innerHTML = itemPopupString + itemdex.innerHTML;
 };
+// -------------------------------------------- MOVES --------------------------------------------
 
+// Fetch Items
+const fetchMoves = async () => {
+    const url = `https://pokeapi.co/api/v2/move?limit=813`;
+    const res = await fetch(url);
+    const data = await res.json();
+    pokeMove = data.results.map( (result, index) => 
+    ({
+        ...result,
+        id: index + 1,
+        name: result.name,
+    }));
+    displayMove(pokeMove);
+};
 
+// Display Pokemon as HTML String
+const displayMove = (pokeMove) => {
+    const moveHTMLString = pokeMove.map(indivMove => `
+    <li class="poke-card" onclick="selectMove(${indivMove.id})">  
+        <div class="poke-info">
+        <span class="poke-id">#${indivMove.id.toString().padStart(3, '0')}</span>
+        <h3 class="poke-name">${indivMove.name}</h3>
+    </div>
+    </li>
+    `).join('');
+    movedex.innerHTML = moveHTMLString;
+};
+
+// Select Item ID 
+const selectMove = async (id) => {
+    const url = `https://pokeapi.co/api/v2/move/${id}`;
+    const res = await fetch(url);
+    const indivMove = await res.json();
+    displayMovePopup(indivMove);
+}
+
+// Display Item Popup 
+const displayMovePopup = (indivMove) => {
+    const accuracy = indivMove.accuracy
+    const movePopupString = `
+    <div class="popup">
+        <button class="closeBtn" id="closeBtn" onclick="closePopup()">✖</button>
+        <div class="popup-card"> 
+            <div class="poke-popup-info">
+                <div class="poke-id">#${indivMove.id.toString().padStart(3, '0')}</div>
+                <h3 class="poke-name">${indivMove.name}</h3>
+                <div class="poke-item-details">
+                    ${accuracy}
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+    movedex.innerHTML = movePopupString + movedex.innerHTML;
+};
 // -------------------------------------------- POKEMON --------------------------------------------
 // Fetch Pokemon according to region
 const fetchPokemon = (startPokeCount, endPokeCount) => {
@@ -240,10 +295,17 @@ $(document).ready(function(){
         // Hide search bar as default
         $( ".searchWrapper" ).hide();
     }
-    else {
+    else if (isInPage(itemdex)) {
+        fetchItems();
         $( ".searchWrapper" ).show();
     }
-    fetchItems();
+    else if (isInPage(movedex)){
+        fetchMoves();
+        $( ".searchWrapper" ).show();
+    }
+    else {
+        $( ".searchWrapper" ).hide();
+    }
     // All regions
     $('#allregions').on('click',function(event){
         fetchPokemon(1,898);

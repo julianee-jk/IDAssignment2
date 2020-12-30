@@ -278,11 +278,13 @@ const displayPopup = (indivPoke) => {
     `<span style="background-color: ${realColors[type.type.name]}" class="poke-type-name">${type.type.name}</span>`).join(' ')
     const ability = indivPoke.abilities.map((ability) => ability.ability.name).join(', ')
     const stats = indivPoke.stats.map((stat) => `
-        <span class="progress-label">${stat.stat.name}:</span>
-        <div class="progress"> 
-            <span class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" style="width: ${stat.base_stat/1.8}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
-            ${stat.base_stat}
-            </span>
+        <div class="progress-box">
+            <span class="progress-label" style="text-align: right">${stat.stat.name}:</span>
+            <div class="progress"> 
+                <span class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" style="width: ${stat.base_stat/1.8}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                ${stat.base_stat}
+                </span>
+            </div>
         </div>
     `).join('<div class="poke-stats-bar"></div>')
     const pokemonPopupString = `

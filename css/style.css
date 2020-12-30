@@ -156,18 +156,32 @@ body {
 /* Pokemoon base stats */
 .poke-stats {
     text-align: left;
-    padding: 12px 11px 0 11px;
+    padding: 23px 11px 0 11px;
     margin-top: 5px;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 15px;
     background-color: rgba(0, 0, 0, 0.9);
 }
 
+/* Stats name to label each progress bar */
 .progress-label {
     float: left;
     margin-right: 0.5em;
     color: #7a7a7a;
 }
+
+/* Set progress bar width */
+.progress {
+    width: 15rem;
+}
+
+/* Box surrounding progress label & bar */
+.progress-box {
+    display: flex;
+    justify-content: space-between;
+
+}
+
 
 /* Pokemon Details (Abilities, Height, Weight, Base-Stats*/
 .poke-details {
@@ -187,7 +201,7 @@ body {
 
 /* Region button */
 .region-btn {
-    margin-right: 10px;
+    margin: 0 3px 0 3px;
 }
 
 /* Container to store Pokemon Search Bar */

@@ -61,6 +61,16 @@ searchBar.addEventListener('keyup', (e) => {
         displayItem(filteredItems);
     }
     
+    if (isInPage(movedex)) {
+        // Search for Item ID & Name
+        const filteredMoves = pokeMove.filter((indivMove) => {
+            return (
+                indivMove.name.toLowerCase().includes(searchTarget) || 
+                indivMove.id == searchTarget2
+            );
+        });
+        displayMove(filteredMoves);
+    }
 });
 // -------------------------------------------- ITEMS --------------------------------------------
 // Fetch Items

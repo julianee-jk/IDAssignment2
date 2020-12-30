@@ -145,13 +145,15 @@ const fetchMoves = async () => {
 // Display Pokemon as HTML String
 const displayMove = (pokeMove) => {
     const moveHTMLString = pokeMove.map(indivMove => `
-    <li class="poke-card" onclick="selectMove(${indivMove.id})">  
+    <li class="poke-card" onclick="selectMove(${indivMove.id})" style="background-color: rgb(196, 196, 196)">  
         <div class="poke-info">
-        <span class="poke-id">#${indivMove.id.toString().padStart(3, '0')}</span>
         <h3 class="poke-name">${indivMove.name}</h3>
+        <span class="poke-id">#${indivMove.id.toString().padStart(3, '0')}</span>
+        <div class="clickmore-text">Click for more</div>
     </div>
     </li>
     `).join('');
+    
     movedex.innerHTML = moveHTMLString;
 };
 
@@ -166,15 +168,31 @@ const selectMove = async (id) => {
 // Display Item Popup 
 const displayMovePopup = (indivMove) => {
     const accuracy = indivMove.accuracy
+    const type = indivMove.type.name
+    const pp = indivMove.pp
+    const power = indivMove.power
+    const effect_chance = indivMove.effect_chance
+    const priority = indivMove.priority
+    const dmg_class = indivMove.damage_class.name
+    const effect = indivMove.effect_entries.map((effect) => effect.short_effect)
     const movePopupString = `
     <div class="popup">
         <button class="closeBtn" id="closeBtn" onclick="closePopup()">✖</button>
-        <div class="popup-card"> 
+        <div class="popup-card"  style="background-color: ${colors[type]}"> 
             <div class="poke-popup-info">
                 <div class="poke-id">#${indivMove.id.toString().padStart(3, '0')}</div>
                 <h3 class="poke-name">${indivMove.name}</h3>
                 <div class="poke-item-details">
-                    ${accuracy}
+                    <div class="poke-type">
+                        <span style="background-color: ${realColors[type]}" class="poke-type-name">${type}</span>
+                    </div>   
+                    <b>Accuracy</b>: ${accuracy}<br>
+                    <b>PP</b>: ${pp}<br>
+                    <b>Power</b>: ${power}<br>
+                    <b>Priority</b>: ${priority}<br>
+                    <b>Effect Chance</b> ${effect_chance}<br>
+                    <b>Damage Class</b>: <span style="text-transform: capitalize">${dmg_class}</span><br>
+                    ${effect}
                 </div>
             </div>
         </div>
@@ -235,7 +253,6 @@ const selectPokemon = async (id) => {
 
 // Display Pokemon Popup 
 const displayPopup = (indivPoke) => {
-    //   <b>${stat.stat.name}</b>: ${stat.base_stat}`).join('<br>')
     const image = indivPoke.sprites['front_default']
     const shinyimage = indivPoke.sprites['front_shiny']
     const type = indivPoke.types.map((type) => type.type.name).join(', ')

@@ -273,6 +273,8 @@ const selectPokemon = async (id) => {
 const displayPopup = (indivPoke) => {
     const image = indivPoke.sprites['front_default']
     const shinyimage = indivPoke.sprites['front_shiny']
+    const expyield = indivPoke.base_experience
+    // const moves = indivPoke.moves.map((move) => `${move.move.name}: ${move.version_group_details[0].level_learned_at}`).join(', ')
     const type = indivPoke.types.map((type) => type.type.name).join(', ')
     const typeColor = indivPoke.types.map((type) => 
     `<span style="background-color: ${realColors[type.type.name]}" class="poke-type-name">${type.type.name}</span>`).join(' ')
@@ -281,7 +283,7 @@ const displayPopup = (indivPoke) => {
         <div class="progress-box">
             <span class="progress-label" style="text-align: right">${stat.stat.name}:</span>
             <div class="progress"> 
-                <span class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" style="width: ${stat.base_stat/1.8}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                <span class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" style="width: ${stat.base_stat/1.8}%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="200">
                 ${stat.base_stat}
                 </span>
             </div>
@@ -308,14 +310,16 @@ const displayPopup = (indivPoke) => {
                 </div>
                 <small class="poke-details">
                     <b>Abilities:</b> ${ability}<br>
-                    <b>Height:</b> ${indivPoke.height/10}m | <b>Weight:</b> ${indivPoke.weight/10}kg
+                    <b>Height:</b> ${indivPoke.height/10}m | <b>Weight:</b> ${indivPoke.weight/10}kg<br>
+                    <b>EXP Yield:</b> ${expyield}xp<br>
                     <div class="poke-stats">
                         ${stats}<br>
                     </div>
                 </small>
             </div>
         </div>
-    </div>`;
+    </div>
+    `;
     pokedex.innerHTML = pokemonPopupString + pokedex.innerHTML;
 };
 
@@ -325,7 +329,6 @@ const closePopup = () => {
     const popup = document.querySelector('.popup');
     popup.parentElement.removeChild(popup);
 };
-
 
 // On click change region
 $(document).ready(function(){

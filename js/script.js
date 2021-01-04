@@ -2,6 +2,7 @@
 const pokedex = document.getElementById('pokedex');
 const itemdex = document.getElementById('itemdex');
 const movedex = document.getElementById('movedex');
+const index = document.getElementById('index');
 // Create constant of searchBar ID
 const searchBar = document.getElementById('searchBar');
 const searchBarItems = document.getElementById('searchBarItems');
@@ -15,7 +16,7 @@ const colors = {
     fire: '#ffcccc', grass: '#DEFDE0', electric: '#FCF7DE', water: '#DEF3FD', ground: '#e6d7ae', 
     rock: '#dbd4b4', fairy: '#fceaff', poison: '#f5d3f5', bug: '#c3d1ba', dragon: '#97b3e6', 
     psychic: '#ffdeed', flying: '#e1d7fc', fighting: '#e6c1ae', normal: '#F5F5F5', ice: '#d5f7f7',
-    ghost: '#ada3bf', dark: '#ab9c93', steel: '#b8b8d0'
+    ghost: '#ada3bf', dark: '#ab9c93', steel: '#cfcfd4'
 };
 
 // Original colours of all Pokemon Types
@@ -47,10 +48,10 @@ searchBar.addEventListener('keyup', (e) => {
         // Search for Pokemon Name & Type (To add ID)
         const filteredPokemons = pokemon.filter((indivPoke) => {
             return (
-                indivPoke.name.toLowerCase().includes(searchTarget) || 
-                indivPoke.type.toLowerCase().includes(searchTarget) ||
-                indivPoke.ability.toLowerCase().includes(searchTarget) ||
-                indivPoke.id == searchTarget2
+                indivPoke.name.toLowerCase().includes(searchTarget) || // Filter Pokemon Name
+                indivPoke.type.toLowerCase().includes(searchTarget) || // Filter Pokemon Type
+                indivPoke.ability.toLowerCase().includes(searchTarget) || // Filter Pokemon Ability
+                indivPoke.id == searchTarget2 // Filter Pokemon ID
             );
         });
         displayPokemon(filteredPokemons);
@@ -59,8 +60,8 @@ searchBar.addEventListener('keyup', (e) => {
         // Search for Item ID & Name
         const filteredItems = pokeItem.filter((indivItem) => {
             return (
-                indivItem.name.toLowerCase().includes(searchTarget) || 
-                indivItem.id == searchTarget2
+                indivItem.name.toLowerCase().includes(searchTarget) || // Filter Item Name
+                indivItem.id == searchTarget2 // Filter Item ID
             );
         });
         displayItem(filteredItems);
@@ -70,9 +71,9 @@ searchBar.addEventListener('keyup', (e) => {
         // Search for Move ID, Name & Type
         const filteredMoves = pokeMove.filter((indivMove) => {
             return (
-                indivMove.name.toLowerCase().includes(searchTarget) || 
-                indivMove.type.name.toLowerCase().includes(searchTarget) ||
-                indivMove.id == searchTarget2
+                indivMove.name.toLowerCase().includes(searchTarget) || // Filter Move Name
+                indivMove.type.name.toLowerCase().includes(searchTarget) || // Filter Move Type
+                indivMove.id == searchTarget2 // Filter Move ID
             );
         });
         displayMove(filteredMoves);
@@ -247,7 +248,6 @@ const fetchPokemon = (startPokeCount, endPokeCount) => {
 
 // Display Pokemon as HTML String
 const displayPokemon = (pokemon) => {
-    console.log(pokemon);
     const pokemonHTMLString = pokemon.map(indivPoke => `
     <li class="poke-card" onclick="selectPokemon(${indivPoke.id})" style="background-color: ${colors[indivPoke.type.split(",")[0]]}">  
         <img class="poke-image" src="${indivPoke.image}" alt="${indivPoke.name}" />
@@ -332,8 +332,8 @@ const closePopup = () => {
 
 // On click change region
 $(document).ready(function(){
+    // Hide search bar as default
     if (isInPage(pokedex)) {
-        // Hide search bar as default
         $( ".searchWrapper" ).hide();
     }
     else if (isInPage(itemdex)) {

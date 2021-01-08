@@ -9,6 +9,9 @@ const searchBarItems = document.getElementById('searchBarItems');
 //Get the button
 const topButton = document.getElementById("topBtn");
 
+const pokeCache = {};
+const itemCache = {};
+const moveCache = {};
 let pokemon = [];
 
 // Lighter colours of all Pokemon types
@@ -112,10 +115,14 @@ const displayItem = (pokeitem) => {
 
 // Select Item ID 
 const selectItem = async (id) => {
-    const url = `https://pokeapi.co/api/v2/item/${id}`;
-    const res = await fetch(url);
-    const indivItem = await res.json();
-    displayItemPopup(indivItem);
+    if (!itemCache[id]) {
+        const url = `https://pokeapi.co/api/v2/item/${id}`;
+        const res = await fetch(url);
+        const indivItem = await res.json();
+        itemCache[id] = indivItem;
+        displayItemPopup(indivItem);
+    }
+    displayItemPopup(itemCache[id]);
 }
 
 // Display Item Popup 
@@ -181,10 +188,14 @@ const displayMove = (pokeMove) => {
 
 // Select Move ID 
 const selectMove = async (id) => {
-    const url = `https://pokeapi.co/api/v2/move/${id}`;
-    const res = await fetch(url);
-    const indivMove = await res.json();
-    displayMovePopup(indivMove);
+    if (!moveCache[id]) {
+        const url = `https://pokeapi.co/api/v2/move/${id}`;
+        const res = await fetch(url);
+        const indivMove = await res.json();
+        moveCache[id] = indivMove;
+        displayMovePopup(indivMove);
+    }
+    displayMovePopup(moveCache[id]);
 }
 
 // Display Move Popup 
@@ -263,10 +274,14 @@ const displayPokemon = (pokemon) => {
 
 // Select Pokemon ID 
 const selectPokemon = async (id) => {
-    const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-    const res = await fetch(url);
-    const indivPoke = await res.json();
-    displayPopup(indivPoke);
+    if (!pokeCache[id]) {
+        const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+        const res = await fetch(url);
+        const indivPoke = await res.json();
+        pokeCache[id] = indivPoke;
+        displayPopup(indivPoke);
+    } 
+        displayPopup(pokeCache[id]);
 }
 
 // Display Pokemon Popup 

@@ -71,13 +71,14 @@ All the webpages share the same designs for the header page and footer.
 * **Contact**
     * Enquiry Form
     * Social media links
+    * Mobile responsiveness for devices including Galaxy Fold.
 
 ### Features to implement
 - [] Fixed mobile responsiveness for Galaxy Fold.
 - [] Add evolution chart.
 - [x] Add moves page
 - [x] Add contact page
-- [] Contact page mobile
+- [x] Contact page mobile
 
 ## Technology Used
 These are all the tools and languages which I have used to construct this project.

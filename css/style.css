@@ -391,6 +391,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: rgba(0, 0, 0, 0.274) solid 1px;
 }
 
 /* Contact form box info */
@@ -409,12 +410,18 @@ body {
 .form-label {
     color: rgb(56, 56, 56);
     font-weight: bold;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 /* Individual form inputs & placeholder */
 .form-control, .form-control::placeholder {
     color: rgb(179, 177, 177);
+}
+
+.submit-btn-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Main box to contain info */
@@ -427,13 +434,17 @@ body {
 
 /* Box design */
 .social-box-design {
-    text-align: center;
-    padding: 1em;
-    background-color:rgb(253, 255, 154);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(#fdff9a, #b9b9b9);
     width: 16%;
+    min-width: 15em;
+    padding: 1em;
     height: auto;
     border-radius: 20px;
     box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+    border: rgba(0, 0, 0, 0.63) solid 1px;
 }
 
 /* Social media links */
@@ -586,6 +597,25 @@ body {
     /* Set progress bar width */
     .progress {
         width: 11rem;
+    }
+
+    /* Contact form box */
+    .contact-box {
+        margin: 1em auto;
+        background-color: white;
+        width: 80%;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Individual form inputs boxes */
+    .form-group {
+        margin: 0.5em auto;
+        width: 60vw;
     }
 }
 

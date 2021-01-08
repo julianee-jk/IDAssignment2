@@ -46,7 +46,8 @@ body {
     font-size: 18px;
     border: none;
     outline: none;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(248, 255, 144);
+    border: rgb(73, 73, 73) solid 2px;
     color: white;
     cursor: pointer;
     padding: 8px 12px 8px 12px;
@@ -56,7 +57,7 @@ body {
 
 /* Back to top button on hover */
 #topBtn:hover {
-    background-color: #555;
+    background-color: rgb(242, 253, 92);
 }
 
 /* ---------------------------- Index Page ---------------------------- */
@@ -398,22 +399,46 @@ body {
     text-align: left;
 }
 
+/* Individual form inputs boxes */
 .form-group {
     margin: 1.3em auto;
     width: 30vw;
 }
 
+/* Individual form inputs labels */
 .form-label {
     color: rgb(56, 56, 56);
     font-weight: bold;
     text-transform: uppercase;
 }
-.form-control {
+
+/* Individual form inputs & placeholder */
+.form-control, .form-control::placeholder {
     color: rgb(179, 177, 177);
 }
 
-.form-control::placeholder {
-    color: rgb(179, 177, 177);
+/* Main box to contain info */
+.social-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+/* Box design */
+.social-box-design {
+    text-align: center;
+    padding: 1em;
+    background-color:rgb(253, 255, 154);
+    width: 16%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+}
+
+/* Social media links */
+.social-links {
+    margin: 0 1em 0 1em;
 }
 /* ---------------------------- Animations ---------------------------- */
 @keyframes bounce {

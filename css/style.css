@@ -378,7 +378,43 @@ body {
     transform: translateY(-1px);
     box-shadow: 0px 1px 2px darkred;
 }
+/* ---------------------------- Contact ---------------------------- */
+/* Contact form box */
+.contact-box {
+    margin: 3em auto;
+    background-color: white;
+    width: 40%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+/* Contact form box info */
+.contact-box-info {
+    padding: 2em;
+    text-align: left;
+}
+
+.form-group {
+    margin: 1.3em auto;
+    width: 30vw;
+}
+
+.form-label {
+    color: rgb(56, 56, 56);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.form-control {
+    color: rgb(179, 177, 177);
+}
+
+.form-control::placeholder {
+    color: rgb(179, 177, 177);
+}
 /* ---------------------------- Animations ---------------------------- */
 @keyframes bounce {
     20% {

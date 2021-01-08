@@ -68,6 +68,10 @@ All the webpages share the same designs for the header page and footer.
     * Each Move cards will have a coloured background based on it's type.
     * Mobile responsiveness for all devices except Galaxy Fold.
 
+* **Contact**
+    * Enquiry Form
+    * Social media links
+
 ### Features to implement
 * Fixed mobile responsiveness for Galaxy Fold.
 * Add evolution chart.
@@ -152,10 +156,11 @@ These are all the tools and languages which I have used to construct this projec
 The following links below are all the links of social medias, images, albums etc.. that I have made use of throughout my website.
 
 **Image Sources:**
-[Pokéball Logo (Before Edit)](https://www.pinterest.se/pin/382243087101906111/)
+[Pokéball Logo (Before Edit)](https://www.pinterest.se/pin/382243087101906111/),
+[Pokémon Sprites](https://Pokéapi.co/)
 
 **Icons**
-[Arrow Up](https://fsymbols.com/signs/arrow/)
+[Arrow Up](https://fsymbols.com/signs/arrow/),
 [Cross](http://www.i2symbol.com/symbols/check)
 
 ### Acknowledgements

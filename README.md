@@ -1,19 +1,21 @@
 # IDAssignment2
-Interactive Design - Assignment 2 (Ee Jun Kai Julian) (21/12/2020)
+Interactive Design - Assignment 2 (Ee Jun Kai Julian) Updated as of: (8/1/2021)
 
 # Introduction
-This website or mobile application is made to allow users to look through the official Pokedex. They will be able to see more about the ID of the Pokémon, the name of the Pokémon as well as the Type(s) of the Pokémon. 
+This website or mobile application is made to allow anybody be it newcomers or existing Pokémon fans to look up more information about their favourite Pokémon, PokéItems or even the specific Moves to learn more about what it does. In the Pokédex, they will be able to see more about the ID of the Pokémon, the name of the Pokémon, the Type(s) of the Pokémon as well as other relevant information like it's EXP Yield. 
 
-I decided to come up with this Pokémon Information Center website/application because I am a Pokémon fan myself. I really enjoy the gameplay and art of Pokémon ever since I was younger. Overall, I wish to educate more people about the various Pokémon that exist and hopefully spread the fun and joy the game offers.
+This project makes use of the PokéAPI to retrieve and gather frequently updated Pokémon data.
 
+I decided to come up with this Pokémon Information Center website/application because I am a Pokémon fan myself. I really enjoy the gameplay and art of Pokémon ever since I was younger. Overall, I wish to educate more people about the various Pokémon and unique Items that exist, and hopefully spread the fun and joy this awesome franchise offers.
 ## Design Process
 
 * **Newcomers**
-    * The newcomers will be able to look at the various types of Pokémon in the Pokedex of different generations and hopefully slowly gain interest towards the game.
+    * The newcomers will be able to look at the various types of Pokémon in the Pokédex of different generations, they will also be able to check out the wide variety of unique items and moves the Pokémon franchise has to offer. Hopefully this will let them to slowly gain more interest towards Pokémon.
 
 * **Fans**
     * The fans will be able to look for their favourite Pokémons and understand more about specific types. This will allow them to improve their understanding of other Pokémons which they can utilize in-game.
     * The fans will also be able to look at the various Pokémon Type advantages and disadvantages. This will allow them to gain extra knowledge on the game which they can use to their advantage in Player-versus-Player combat.
+    * Similarly, the fans will be able to access the Movedex & the Itemdex to look up specific information of any Items & Moves they wish to know more about.
 
 **Wireframe Link:**
 [Website Wireframe](https://drive.google.com/drive/folders/1iIDFmfFIgDDwleMQjQUlXSr9yx-J1_Uf?usp=sharing)
@@ -32,28 +34,46 @@ All the webpages share the same designs for the header page and footer.
     * Home introduction text box
     * Mobile responsiveness for all devices except Galaxy Fold.
 
-* **Pokedex**
-    * Pokemon will show depending on the regions.
-    * Live filtering search bar
-    * Popup info menu when clicked on individual Pokemon
+* **Pokédex**
+    * Pokémon will show depending on the selected region(s).
+    * Auto filtering search bar **(Pokémon ID, Name, Type or Abilities)**
+    * Popup info menu when clicked on individual Pokémon
+        * Pokémon Type
+        * Default & Shiny image of Pokémon
+        * Pokémon XP Yield
+        * Brief description of Pokémon **(Height, Weight, Abilities)**
         * Progress bar in Popup info to display stats
     * Back to top function.
+    * Each Pokémon card will have a coloured background based on it's **first** type.
     * Mobile responsiveness for all devices except Galaxy Fold.
 
 * **Itemdex**
     * All items will be displayed.
-    * Live filtering search bar
+    * Auto filtering search bar **(Item ID & Name)**
     * Popup info menu when clicked on individual Items
+        * Category of the Item **(Standard-Balls, Healing, etc..)**
+        * Short description of Item
     * Back to top function.
     * Mobile responsiveness for all devices except Galaxy Fold.
 
+* **Movedex**
+    * All moves will be displayed.
+    * Auto filtering search bar **(Move ID, Name, Type)**
+    * Popup info menu when clicked on individual moves
+        * Move type
+        * Move damage class **(Physical, Special, Status)**
+        * Information of Move **(Power, Accuracy, PP, Priority & Effect Chance - If applicable)**
+        * Short description of Move
+    * Back to top function.
+    * Each Move cards will have a coloured background based on it's type.
+    * Mobile responsiveness for all devices except Galaxy Fold.
+
 ### Features to implement
-* Fixed mobile responsiveness for Galaxy Fold
-* Add evolution/moves pages.
+* Fixed mobile responsiveness for Galaxy Fold.
+* Add evolution chart.
 
 ## Technology Used
-These are all the languages and tools which I have used to construct this project.
-
+These are all the tools and languages which I have used to construct this project.
 ### Tools
 * [Visual Studio Code](https://code.visualstudio.com/)
     * This project uses **Visual Studio Code** as the Integrated Development Environment (IDE)
@@ -74,7 +94,7 @@ These are all the languages and tools which I have used to construct this projec
     * This project made use of CSS to style the content of the website.
 
 * [JavaScript](https://www.javascript.com/)
-    * This project made use of JavaScript to make the webpage much more interactive, aesthetic with animations as well as to make use of API to retrieve Pokémon information from the PokeAPI.
+    * This project made use of JavaScript to make the webpage much more interactive, aesthetic with animations as well as to make use of API to retrieve Pokémon information from the PokéAPI.
 
 * [JQuery](https://jquery.com/)
     * Similary to JavaScript, this project made use of JQuery to help simplify the use of JavaScript.
@@ -120,30 +140,30 @@ These are all the languages and tools which I have used to construct this projec
 
 ### Content
 1. This API website has allowed me to obtain information and data of Pokémons for my website.
-[PokeAPI](https://pokeapi.co/)
+[PokéAPI](https://Pokéapi.co/)
 
-1. This YouTube video helped me to understand more about how to make use of the PokeAPI.
-[Build a Pokedex with HTML, CSS & JavaScript](https://www.youtube.com/watch?v=T-VQUKeSU1w) 
+1. This YouTube video helped me to understand more about how to make use of the PokéAPI.
+[Build a Pokédex with HTML, CSS & JavaScript](https://www.youtube.com/watch?v=T-VQUKeSU1w) 
 
-1. This YouTube video helped me to further improve the design of my PokeDex.
-[PokeDex - JavaScript Tutorial](https://www.youtube.com/watch?v=XL68br6JyYs)
+1. This YouTube video helped me to further improve the design of my PokéDex.
+[PokéDex - JavaScript Tutorial](https://www.youtube.com/watch?v=XL68br6JyYs)
 
 ### Media & Sources
 The following links below are all the links of social medias, images, albums etc.. that I have made use of throughout my website.
 
 **Image Sources:**
-[Pokeball Logo (Before Edit)](https://www.pinterest.se/pin/382243087101906111/)
+[Pokéball Logo (Before Edit)](https://www.pinterest.se/pin/382243087101906111/)
 
 **Icons**
 [Arrow Up](https://fsymbols.com/signs/arrow/)
 [Cross](http://www.i2symbol.com/symbols/check)
 
 ### Acknowledgements
-1. This API has allowed me to gather information of the Pokemon franchise for my website as well as having proper documentation on how to make use of the API.
-[PokeAPI](https://pokeapi.co/)
+1. This API has allowed me to gather information of the Pokémon franchise for my website as well as having proper documentation on how to make use of the API.
+[PokéAPI](https://Pokéapi.co/)
 
-1. The official Pokemon Pokedex website that inspired me for the Pokedex on my website.
-[Official Pokemon - Pokedex](https://www.pokemon.com/us/pokedex/)
+1. The official Pokémon Pokédex website that inspired me for the Pokédex on my website.
+[Official Pokémon - Pokédex](https://www.Pokémon.com/us/Pokédex/)
 
 1. The Reactiflux discord members has helped me a little bit with my code when I am having some trouble.
 [Reactiflux](https://www.reactiflux.com/)

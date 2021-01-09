@@ -183,10 +183,9 @@ const fetchMoves = async () => {
           ...moveDetailsJSON,
           id: index + 1,
           name: result.name,
-        };
-      })
-    );
-    displayMove(pokeMove)
+        }
+    }));
+    displayMove(pokeMove);
   };
 
 // Display Move as HTML String

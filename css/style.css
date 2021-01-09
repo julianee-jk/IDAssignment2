@@ -33,7 +33,7 @@ body {
 
 /* Colour of nav bar */
 .nav-color {
-    background-color: #2b2b2b;
+    background: radial-gradient(#2b2b2b, #000000);
 }
 
 /* Back to top button */
@@ -57,6 +57,11 @@ body {
 /* Back to top button on hover */
 #topBtn:hover {
     background-color: rgb(187, 0, 0);
+}
+
+.footer-color {
+    background: radial-gradient(#2b2b2b, #000000);
+    color: rgba(255, 255, 255, 0.425);
 }
 
 /* ---------------------------- Index Page ---------------------------- */
@@ -413,7 +418,7 @@ body {
 }
 
 /* Individual form inputs & placeholder */
-.form-control, .form-control::placeholder {
+.form-control::placeholder {
     color: rgb(179, 177, 177);
 }
 
@@ -572,7 +577,7 @@ body {
     /* Close button for pop menu */
     #closeBtn {
         position: absolute;
-        top: 5px;
+        top: 0;
         right: -20px;
     }
 
@@ -616,6 +621,10 @@ body {
         margin: 0.5em auto;
         width: 60vw;
     }
+
+    a.nav-link {
+        text-align: center
+    }
 }
 
 /* MOBILE RESPONSIVENESS FOR iPhone 6/7/8 Plus & Pixel 2*/
@@ -651,7 +660,6 @@ body {
 
     /* Set progress bar width */
     .progress {
-        width: 7.6rem;
-        
+        width: 7.6rem;   
     }
 }

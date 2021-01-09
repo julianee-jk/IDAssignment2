@@ -13,13 +13,14 @@ I decided to come up with this Pokémon Information Center website/application b
 * **Newcomers**
     * The newcomers will be able to look at the various types of Pokémon in the Pokédex of different generations, they will also be able to check out the wide variety of unique items and moves the Pokémon franchise has to offer. Hopefully this will let them to slowly gain more interest towards Pokémon.
 
-* **Fans**
+* **Pokémon Enthusiasts**
     * The fans will be able to look for their favourite Pokémons and understand more about specific types. This will allow them to improve their understanding of other Pokémons which they can utilize in-game.
     * The fans will also be able to look at the various Pokémon Type advantages and disadvantages. This will allow them to gain extra knowledge on the game which they can use to their advantage in Player-versus-Player combat.
     * Similarly, the fans will be able to access the Movedex & the Itemdex to look up specific information of any Items & Moves they wish to know more about.
 
 **Wireframe Link:**
-[Website Wireframe](https://drive.google.com/drive/folders/1iIDFmfFIgDDwleMQjQUlXSr9yx-J1_Uf?usp=sharing)
+Click to access the [Website Wireframe](https://drive.google.com/drive/folders/1iIDFmfFIgDDwleMQjQUlXSr9yx-J1_Uf?usp=sharing).
+Click to access [Github Pages](https://julianee-jk.github.io/IDAssignment2/).
 
 ## Features
 These are the current features and pages of my website as well as the additional features I plan to add in the future.
@@ -28,8 +29,8 @@ These are the current features and pages of my website as well as the additional
 All the webpages share the same designs for the header page and footer. 
 
 * **Global Features**
-    * Navigation bar
-    * Footer with Copyright
+    * Navigation bar with Logo
+    * Footer with Copyright & source
 
 * **Homepage - Index Page**
     * Home introduction text box
@@ -77,36 +78,19 @@ All the webpages share the same designs for the header page and footer.
 ### Features to implement
 - [ ] Fixed mobile responsiveness for Galaxy Fold.
 - [ ] Add evolution chart.
-- [x] Add moves page
-- [x] Add contact page
-- [x] Contact page mobile
 
 ## Technology Used
 These are all the tools and languages which I have used to construct this project.
 ### Tools
-* [Visual Studio Code](https://code.visualstudio.com/)
-    * This project uses **Visual Studio Code** as the Integrated Development Environment (IDE)
-
-* [Adobe XD](https://www.adobe.com/sea/products/xd.html)
-    * This project uses **Adobe XD** to make the wireframes of the website. (Desktop & Mobile)
-
-* [Bootstrap](https://getbootstrap.com/)
-    * This project uses **Bootstrap** to make the responsive navigation bar.
-
-* [Adobe Photoshop](https://www.adobe.com/sea/products/photoshop.html)
-    * This project uses **Adobe Photoshop** to edit and modify image sizes, remove backgrounds of images and touch up on them.
+* [Visual Studio Code](https://code.visualstudio.com/) → Integrated Development Environment (IDE) used.
+* [Adobe XD](https://www.adobe.com/sea/products/xd.html) → To make the wireframes of the website. (Desktop & Mobile).
+* [Bootstrap](https://getbootstrap.com/) → To make the responsive navigation bar, icons and more.
+* [Adobe Photoshop](https://www.adobe.com/sea/products/photoshop.html) → To edit and modify image sizes, remove backgrounds of images and touch up on them.
 ### Languages 
-* [Hypertext Markup Language (HTML)](https://html.spec.whatwg.org/)
-    * This project made use of HTML to create the content of the website.
-
-* [Cascading Style Sheets (CSS)](https://www.w3.org/Style/CSS/Overview.en.html)
-    * This project made use of CSS to style the content of the website.
-
-* [JavaScript](https://www.javascript.com/)
-    * This project made use of JavaScript to make the webpage much more interactive, aesthetic with animations as well as to make use of API to retrieve Pokémon information from the PokéAPI.
-
-* [JQuery](https://jquery.com/)
-    * Similary to JavaScript, this project made use of JQuery to help simplify the use of JavaScript.
+* [Hypertext Markup Language (HTML)](https://html.spec.whatwg.org/) → To create the content of the website.
+* [Cascading Style Sheets (CSS)](https://www.w3.org/Style/CSS/Overview.en.html) → To style the content of the website.
+* [JavaScript](https://www.javascript.com/) → To make the webpage much more interactive, aesthetic with animations as well as to make use of API to retrieve Pokémon information from the PokéAPI.
+* [JQuery](https://jquery.com/) → To help simplify the use of JavaScript, HTML manipulation and Event handling.
 ## Testing
 ### Browsers Tested
 
@@ -145,40 +129,46 @@ These are all the tools and languages which I have used to construct this projec
 * **Samsung Galaxy Fold**
     * Black background of Popup menu does not cover whole screen.
 
+### Validators
+
+* [HTML Validator](https://validator.w3.org/)
+* [CSS Validator](https://jigsaw.w3.org/css-validator/)
+* [JS & JQuery Validator](https://jshint.com/) → 'Unused' variables when it is used in formatting & undefined variables (if defined, will have error).
 ## Credits
 
 ### Content
-1. This API website has allowed me to obtain information and data of Pokémons for my website.
-[PokéAPI](https://Pokéapi.co/)
+1. [PokéAPI](https://Pokéapi.co/) → Pokémon API used to gather data.
 
-1. This YouTube video helped me to understand more about how to make use of the PokéAPI.
-[Build a Pokédex with HTML, CSS & JavaScript](https://www.youtube.com/watch?v=T-VQUKeSU1w) 
-
-1. This YouTube video helped me to further improve the design of my PokéDex.
-[PokéDex - JavaScript Tutorial](https://www.youtube.com/watch?v=XL68br6JyYs)
-
+1. [PokéAPI Github](https://github.com/PokeAPI/sprites) → Pokémon & Item sprites
 ### Media & Sources
 The following links below are all the links of social medias, images, albums etc.. that I have made use of throughout my website.
 
 **Image Sources:**
 [Pokéball Logo (Before Edit)](https://www.pinterest.se/pin/382243087101906111/),
-[Pokémon Sprites](https://Pokéapi.co/)
+[Pokémon Sprites](https://pokeapi.co/)
+[PokéAPI Logo](https://pokeapi.co/)
 
 **Icons**
 [Arrow Up](https://icons.getbootstrap.com/),
 [Cross](http://www.i2symbol.com/symbols/check)
 
 ### Acknowledgements
-1. This API has allowed me to gather information of the Pokémon franchise for my website as well as having proper documentation on how to make use of the API.
-[PokéAPI](https://Pokéapi.co/)
+1. [PokéAPI](https://Pokéapi.co/) → This API has allowed me to gather information of the Pokémon franchise for my website as well as having proper documentation on how to make use of the API.
 
-1. The official Pokémon Pokédex website that inspired me for the Pokédex on my website.
-[Official Pokémon - Pokédex](https://www.Pokémon.com/us/Pokédex/)
+1. [Build a Pokédex with HTML, CSS & JavaScript](https://www.youtube.com/watch?v=T-VQUKeSU1w) → This YouTube video helped me to understand more about how to make use of the PokéAPI.
 
-1. The Reactiflux discord members has helped me a little bit with my code when I am having some trouble.
-[Reactiflux](https://www.reactiflux.com/)
+1. [Build a Pokédex with HTML, CSS & JavaScript Part 2](https://www.youtube.com/watch?v=L0pPRauLP2E) → This YouTube video helped me to generate a proper popup on click.
 
-1. This website has helped me with commands that I had trouble with and also taught me many ways to create interesting HTML, CSS & JavaScript content.
-[W3School](https://www.w3schools.com/)
+1. [PokéDex - JavaScript Tutorial](https://www.youtube.com/watch?v=XL68br6JyYs) → This YouTube video helped me to further improve the design of my PokéDex.
 
-1. My friends who gave me ideas on some website additions.
+1. [JS Search Bar](https://www.youtube.com/watch?v=wxz5vJ1BWrc&t=1s) → Auto-filtering search bar
+
+1. [Official Pokédex](https://www.Pokémon.com/us/Pokédex/) → The Official Pokémon Pokédex website that inspired me for the Pokédex on my website.
+
+1. [Reactiflux](https://www.reactiflux.com/) → The Reactiflux discord members has helped me a little bit with my code when I am having some trouble.
+
+1. [W3School](https://www.w3schools.com/) → This website has helped me with commands that I had trouble with and also taught me many ways to create interesting HTML, CSS & JavaScript content.
+
+1. [Bootstrap](https://getbootstrap.com/) → Made use of bootstrap templates for web development.
+
+1. My friends who gave me ideas on some website additions. <3

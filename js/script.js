@@ -1,11 +1,10 @@
+/* jshint esversion: 9 */
 // Create constant of page IDs
 const pokedex = document.getElementById('pokedex');
 const itemdex = document.getElementById('itemdex');
 const movedex = document.getElementById('movedex');
-const index = document.getElementById('index');
 // Create constant of searchBar ID
 const searchBar = document.getElementById('searchBar');
-const searchBarItems = document.getElementById('searchBarItems');
 //Get the button
 const topButton = document.getElementById("topBtn");
 // Pokemon array to store objects
@@ -37,7 +36,7 @@ const dmgColors = {
 // Function to check if ID is in page
 function isInPage(node) {
     return (node === document.body) ? false : document.body.contains(node);
-};
+}
 
 // -------------------------------------------- CONTACT PAGE LOCAL STORAGE  --------------------------------------------
 // Retrieve form info when submit
@@ -67,46 +66,48 @@ document.addEventListener('submit', function(event){
 
 // -------------------------------------------- SEARCH BAR --------------------------------------------
 // Check every user key input
-searchBar.addEventListener('keyup', (e) => {
-    // Force user input to lowercase
-    const searchTarget = e.target.value.toLowerCase();
-    const searchTarget2 = e.target.value;
+if (isInPage(pokedex) || isInPage(itemdex) || isInPage(movedex)) {
+    searchBar.addEventListener('keyup', (e) => {
+        // Force user input to lowercase
+        const searchTarget = e.target.value.toLowerCase();
+        const searchTarget2 = e.target.value;
 
-    if (isInPage(pokedex)) {
-        // Search for Pokemon Name & Type (To add ID)
-        const filteredPokemons = pokemon.filter((indivPoke) => {
-            return (
-                indivPoke.name.toLowerCase().includes(searchTarget) || // Filter Pokemon Name
-                indivPoke.type.toLowerCase().includes(searchTarget) || // Filter Pokemon Type
-                indivPoke.ability.toLowerCase().includes(searchTarget) || // Filter Pokemon Ability
-                indivPoke.id == searchTarget2 // Filter Pokemon ID
-            );
-        });
-        displayPokemon(filteredPokemons);
-    }  
-    if (isInPage(itemdex)) {
-        // Search for Item ID & Name
-        const filteredItems = pokeItem.filter((indivItem) => {
-            return (
-                indivItem.name.toLowerCase().includes(searchTarget) || // Filter Item Name
-                indivItem.id == searchTarget2 // Filter Item ID
-            );
-        });
-        displayItem(filteredItems);
-    }
+        if (isInPage(pokedex)) {
+            // Search for Pokemon Name & Type (To add ID)
+            const filteredPokemons = pokemon.filter((indivPoke) => {
+                return (
+                    indivPoke.name.toLowerCase().includes(searchTarget) || // Filter Pokemon Name
+                    indivPoke.type.toLowerCase().includes(searchTarget) || // Filter Pokemon Type
+                    indivPoke.ability.toLowerCase().includes(searchTarget) || // Filter Pokemon Ability
+                    indivPoke.id == searchTarget2 // Filter Pokemon ID
+                );
+            });
+            displayPokemon(filteredPokemons);
+        }  
+        if (isInPage(itemdex)) {
+            // Search for Item ID & Name
+            const filteredItems = pokeItem.filter((indivItem) => {
+                return (
+                    indivItem.name.toLowerCase().includes(searchTarget) || // Filter Item Name
+                    indivItem.id == searchTarget2 // Filter Item ID
+                );
+            });
+            displayItem(filteredItems);
+        }
 
-    if (isInPage(movedex)) {
-        // Search for Move ID, Name & Type
-        const filteredMoves = pokeMove.filter((indivMove) => {
-            return (
-                indivMove.name.toLowerCase().includes(searchTarget) || // Filter Move Name
-                indivMove.type.name.toLowerCase().includes(searchTarget) || // Filter Move Type
-                indivMove.id == searchTarget2 // Filter Move ID
-            );
-        });
-        displayMove(filteredMoves);
-    }
-});
+        if (isInPage(movedex)) {
+            // Search for Move ID, Name & Type
+            const filteredMoves = pokeMove.filter((indivMove) => {
+                return (
+                    indivMove.name.toLowerCase().includes(searchTarget) || // Filter Move Name
+                    indivMove.type.name.toLowerCase().includes(searchTarget) || // Filter Move Type
+                    indivMove.id == searchTarget2 // Filter Move ID
+                );
+            });
+            displayMove(filteredMoves);
+        }
+    });
+}
 // -------------------------------------------- ITEMS --------------------------------------------
 // Fetch Items
 const fetchItems = async () => {
@@ -146,9 +147,9 @@ const selectItem = async (id) => {
 
 // Display Item Popup 
 const displayItemPopup = (indivItem) => {
-    const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${indivItem.name}.png`
-    const effect = indivItem.effect_entries.map((effect) => effect.short_effect)
-    const category = indivItem.category.name
+    const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${indivItem.name}.png`;
+  	const effect = indivItem.effect_entries.map((effect) => effect.short_effect);
+    const category = indivItem.category.name;
     const itemPopupString = `
     <div class="popup">
         <button class="closeBtn" id="closeBtn" onclick="closePopup()">✖</button>
@@ -183,7 +184,7 @@ const fetchMoves = async () => {
           ...moveDetailsJSON,
           id: index + 1,
           name: result.name,
-        }
+        };
     }));
     displayMove(pokeMove);
   };
@@ -214,14 +215,14 @@ const selectMove = async (id) => {
 
 // Display Move Popup 
 const displayMovePopup = (indivMove) => {
-    const accuracy = indivMove.accuracy
-    const type = indivMove.type.name
-    const pp = indivMove.pp
-    const power = indivMove.power
-    const effect_chance = indivMove.effect_chance
-    const priority = indivMove.priority
-    const damage_class = indivMove.damage_class.name
-    const effect = indivMove.effect_entries.map((effect) => effect.short_effect)
+    const accuracy = indivMove.accuracy;
+    const type = indivMove.type.name;
+    const pp = indivMove.pp;
+    const power = indivMove.power;
+    const effect_chance = indivMove.effect_chance;
+    const priority = indivMove.priority;
+    const damage_class = indivMove.damage_class.name;
+    const effect = indivMove.effect_entries.map((effect) => effect.short_effect);
     const movePopupString = `
     <div class="popup">
         <button class="closeBtn" id="closeBtn" onclick="closePopup()">✖</button>
@@ -251,14 +252,14 @@ const fetchPokemon = (startPokeCount, endPokeCount) => {
     for (let i = startPokeCount; i <=  endPokeCount; i++) {
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
         promises.push(fetch(url).then(res => res.json()));
-    };
+    }
 
     // Make use of Promise.All to load Pokedex faster
     Promise.all(promises).then(results => {
         pokemon = results.map(data => ({
             id: data.id,
             name: data.name,
-            image: data.sprites['front_default'],
+            image: data.sprites.front_default,
             type: data.types.map((type) => type.type.name).join(', '),
             typeColor: data.types.map((type) => 
             `<span style="background-color: ${realColors[type.type.name]}" class="poke-type-name">${type.type.name}</span>`).join(' '),
@@ -296,13 +297,13 @@ const selectPokemon = async (id) => {
 
 // Display Pokemon Popup 
 const displayPopup = (indivPoke) => {
-    const image = indivPoke.sprites['front_default']
-    const shinyimage = indivPoke.sprites['front_shiny']
-    const expyield = indivPoke.base_experience
-    const type = indivPoke.types.map((type) => type.type.name).join(', ')
+    const image = indivPoke.sprites.front_default;
+    const shinyimage = indivPoke.sprites.front_shiny;
+    const expyield = indivPoke.base_experience;
+    const type = indivPoke.types.map((type) => type.type.name).join(', ');
     const typeColor = indivPoke.types.map((type) => 
-    `<span style="background-color: ${realColors[type.type.name]}" class="poke-type-name">${type.type.name}</span>`).join(' ')
-    const ability = indivPoke.abilities.map((ability) => ability.ability.name).join(', ')
+    `<span style="background-color: ${realColors[type.type.name]}" class="poke-type-name">${type.type.name}</span>`).join(' ');
+		const ability = indivPoke.abilities.map((ability) => ability.ability.name).join(', ');
     const stats = indivPoke.stats.map((stat) => `
         <div class="progress-box">
             <span class="progress-label" style="text-align: right">${stat.stat.name}:</span>
@@ -312,7 +313,7 @@ const displayPopup = (indivPoke) => {
                 </span>
             </div>
         </div>
-    `).join('<div class="poke-stats-bar"></div>')
+    `).join('<div class="poke-stats-bar"></div>');
     const pokemonPopupString = `
     <div class="popup">
         <button class="closeBtn" id="closeBtn" onclick="closePopup()">✖</button>
@@ -432,7 +433,7 @@ $(document).ready(function(){
   });
 
 // When the user scrolls down 150px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function() {scrollFunction();};
 
 function scrollFunction() {
   if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -440,10 +441,10 @@ function scrollFunction() {
   } else {
     topButton.style.display = "none";
   }
-};
+}
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
-};
+}

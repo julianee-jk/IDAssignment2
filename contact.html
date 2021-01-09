@@ -35,47 +35,51 @@
   <!-- Page Title -->
   <h1 class="page-title">Contact Us</h1>
   <!-- Home box to store introduction-->
-<div class="contact-box">
-  <form class="contact-box-info" id="contactForm">
-    <div class="form-group">
-      <label for="user-email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="user-email" placeholder="name@example.com" required>
-    </div>
-    <div class="form-group">
-      <label for="user-enquiry-type" class="form-label">Enquiry Type</label>
-      <select class="form-control" id="user-enquiry-type" required>
-        <option value="" disabled selected>Select an option..</option>
-        <option value="request" >Request</option>
-        <option value="suggestion">Suggestion</option>
-        <option value="feedback">Feedback</option>
-        <option value="complain">Complain</option>
-        <option value="other">Other</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="user-enquiry-desc" class="form-label">Description</label>
-      <textarea class="form-control" id="user-enquiry-desc" style="resize: none;" placeholder="I would like to.." rows="4" required></textarea>
-    </div>
-    <div class="submit-btn-box">
-      <button type="submit" class="btn btn-dark">Submit</button>
-    </div>
-  </form>
-</div>
-<div class="social-box">
-  <div class="social-box-design">
-    <a href="https://www.facebook.com/julianeejk/" target="_blank"><img class="social-links" src="images/bootstrap-icons/facebook.svg" alt="Facebook_Logo" width="32" height="32" title="Facebook"></a>
-    <a href="https://www.instagram.com/julianeejk/" target="_blank"><img class="social-links" src="images/bootstrap-icons/instagram.svg" alt="Instagram_Logo" width="32" height="32" title="Instagram"></a>
-    <a href="https://www.linkedin.com/in/julian-ee-jun-kai/" target="_blank"><img class="social-links" src="images/bootstrap-icons/linkedin.svg" alt="Linkedin_Logo" width="32" height="32" title="Linkedin"></a>
+  <div class="contact-box">
+    <form class="contact-box-info" id="contactForm">
+      <!-- Form email input -->
+      <div class="form-group">
+        <label for="user-email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="user-email" placeholder="name@example.com" required>
+      </div>
+      <!-- Select enquiriy type -->
+      <div class="form-group">
+        <label for="user-enquiry-type" class="form-label">Enquiry Type</label>
+        <select class="form-control" id="user-enquiry-type" required>
+          <option value="" disabled selected>Select an option...</option>
+          <option value="request" >Request</option>
+          <option value="suggestion">Suggestion</option>
+          <option value="feedback">Feedback</option>
+          <option value="complain">Complain</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <!-- User enquiry description -->
+      <div class="form-group">
+        <label for="user-enquiry-desc" class="form-label">Description</label>
+        <textarea class="form-control" id="user-enquiry-desc" style="resize: none;" placeholder="I would like to.." rows="4" required></textarea>
+      </div>
+      <div class="submit-btn-box">
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </div>
+    </form>
   </div>
-</div>
+  <!-- Social media links box -->
+  <div class="social-box">
+    <div class="social-box-design">
+      <a href="https://www.facebook.com/julianeejk/" target="_blank"><img class="social-links" src="images/bootstrap-icons/facebook.svg" alt="Facebook_Logo" width="32" height="32" title="Facebook"></a>
+      <a href="https://www.instagram.com/julianeejk/" target="_blank"><img class="social-links" src="images/bootstrap-icons/instagram.svg" alt="Instagram_Logo" width="32" height="32" title="Instagram"></a>
+      <a href="https://www.linkedin.com/in/julian-ee-jun-kai/" target="_blank"><img class="social-links" src="images/bootstrap-icons/linkedin.svg" alt="Linkedin_Logo" width="32" height="32" title="Linkedin"></a>
+    </div>
+  </div>
   <!-- Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <!-- Main JavaScript file -->
   <script src="js/script.js"></script>
-<footer class="bg-dark footer-color">
-  <!-- Copyright -->
-  <div class="text-center p-3">© 2020 Jul's PokéInfoCentre - All Rights Reserved</div>
-</footer>
+  <footer class="bg-dark footer-color">
+    <!-- Copyright -->
+    <div class="text-center p-3">© 2020 Jul's PokéInfoCentre - All Rights Reserved</div>
+  </footer>
 </body>
 </html>

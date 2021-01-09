@@ -456,6 +456,7 @@ body {
     margin: 0 1em 0 1em;
 }
 /* ---------------------------- Animations ---------------------------- */
+/* Bounce Animation */
 @keyframes bounce {
     20% {
         transform: translateY(-6px);
@@ -472,6 +473,7 @@ body {
     }
 }
 
+/* ---------------------------- MOBILE RESPONSIVENESS ---------------------------- */
 /* MOBILE RESPONSIVENESS FOR iPad Pro*/
 @media only screen and (max-width: 1050px) {
     /* Popup Card Design */
@@ -504,7 +506,7 @@ body {
     }
 }
 
-/* Mobile Responsiveness */
+/* MOBILE RESPONSIVENESS */
 @media only screen and (max-width: 650px) {
     /* Main text box > Mobile */
     .maintext-box {
@@ -523,6 +525,7 @@ body {
         font-size: 13px;
     }
 
+    /* Box for region buttons */
     .button-box {
         display: flex;
         justify-content: center;
@@ -536,11 +539,13 @@ body {
         flex: 1 1 160px;
     }
 
+    /* Box to hold all Pokemon display cards */
     .poke-box {
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
     /* Popup > Mobile */
     /* Image container of default & shiny pokemon in Popup */
     .popup-image-container {
@@ -574,6 +579,7 @@ body {
     .text-spacing {
         margin-right: 4.4em;
     }
+
     /* Close button for pop menu */
     #closeBtn {
         position: absolute;
@@ -622,6 +628,7 @@ body {
         width: 60vw;
     }
 
+    /* Center nav bar links to center for mobile menu */
     a.nav-link {
         text-align: center
     }

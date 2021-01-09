@@ -57,9 +57,11 @@ document.addEventListener('submit', function(event){
     const userType = document.getElementById("user-enquiry-type").value;
     const userQuery = document.getElementById("user-enquiry-desc").value;
 
+    // Push form values into contactArray & create localStorage
     contactArray.push(new Contact(userEmail, userType, userQuery));
     localStorage.setItem('Contact', JSON.stringify(contactArray));
 
+    // Clear form upon each submission
     document.getElementById('contactForm').reset();
 });
 
@@ -115,7 +117,6 @@ const fetchItems = async () => {
     ({
         id: index + 1,
         name: result.name,
-        // image: result.sprites['default']
         image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${result.name}.png`
     }));
     displayItem(pokeItem);
@@ -179,6 +180,7 @@ const fetchMoves = async () => {
         const moveDetailsResult = await fetch(result.url);
         const moveDetailsJSON = await moveDetailsResult.json();
         return {
+          ...moveDetailsJSON,
           id: index + 1,
           name: result.name,
         };

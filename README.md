@@ -1,12 +1,13 @@
 # IDAssignment2
-Interactive Design - Assignment 2 (Ee Jun Kai Julian) Updated as of: (8/1/2021)
+**Interactive Design** - Assignment 2 (Ee Jun Kai Julian) 
+Updated as of: (9/1/2021)
 
 # Introduction
 This website or mobile application is made to allow anybody be it newcomers or existing Pokémon fans to look up more information about their favourite Pokémon, PokéItems or even the specific Moves to learn more about what it does. In the Pokédex, they will be able to see more about the ID of the Pokémon, the name of the Pokémon, the Type(s) of the Pokémon as well as other relevant information like it's EXP Yield. 
 
 This project makes use of the PokéAPI to retrieve and gather frequently updated Pokémon data.
 
-I decided to come up with this Pokémon Information Center website/application because I am a Pokémon fan myself. I really enjoy the gameplay and art of Pokémon ever since I was younger. Overall, I wish to educate more people about the various Pokémon and unique Items that exist, and hopefully spread the fun and joy this awesome franchise offers.
+I decided to come up with this Pokémon Information Center website/application because I am a Pokémon fan myself. I really enjoy the gameplay and art of Pokémon ever since I was younger. Another reason behind this project was because I felt that I did not really have access to a proper program/application that will allow me to simply search up a Pokedex, Movedex and Itemdex all at one place. It is just a simple click and your information is displayed. Overall, I wish to educate more people about the various Pokémon and unique Items that exist, and hopefully spread the fun and joy this awesome franchise offers.
 ## Design Process
 
 * **Newcomers**
@@ -74,8 +75,8 @@ All the webpages share the same designs for the header page and footer.
     * Mobile responsiveness for devices including Galaxy Fold.
 
 ### Features to implement
-- [] Fixed mobile responsiveness for Galaxy Fold.
-- [] Add evolution chart.
+- [ ] Fixed mobile responsiveness for Galaxy Fold.
+- [ ] Add evolution chart.
 - [x] Add moves page
 - [x] Add contact page
 - [x] Contact page mobile
@@ -87,7 +88,7 @@ These are all the tools and languages which I have used to construct this projec
     * This project uses **Visual Studio Code** as the Integrated Development Environment (IDE)
 
 * [Adobe XD](https://www.adobe.com/sea/products/xd.html)
-    * This project uses **Adobe Xd** to make the wireframes of the website. (Desktop & Mobile)
+    * This project uses **Adobe XD** to make the wireframes of the website. (Desktop & Mobile)
 
 * [Bootstrap](https://getbootstrap.com/)
     * This project uses **Bootstrap** to make the responsive navigation bar.
@@ -119,7 +120,7 @@ These are all the tools and languages which I have used to construct this projec
 
 ### Mobile Devices Tested
 
-**Motorola Moto G4**
+* **Motorola Moto G4**
     * Mobile responsiveness works well on this device.
 * **Samsung Galaxy S5**
     * Mobile responsiveness works well on this device.

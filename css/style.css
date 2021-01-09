@@ -41,23 +41,22 @@ body {
     display: none;
     position: fixed;
     bottom: 20px;
-    right: 15px;
+    right: 12px;
     z-index: 99;
     font-size: 18px;
-    border: none;
     outline: none;
-    background-color: rgb(248, 255, 144);
-    border: rgb(73, 73, 73) solid 2px;
+    background-color: rgb(247, 73, 73);
+    border: rgb(0, 0, 0) solid 2px;
     color: white;
     cursor: pointer;
     padding: 8px 12px 8px 12px;
     opacity: 0.85;
-    border-radius: 4px;
+    border-radius: 60%; 
   }
 
 /* Back to top button on hover */
 #topBtn:hover {
-    background-color: rgb(242, 253, 92);
+    background-color: rgb(187, 0, 0);
 }
 
 /* ---------------------------- Index Page ---------------------------- */
@@ -86,7 +85,7 @@ body {
 
 /* Each individual Pokemon with details */
 #pokedex {
-    padding-inline-start: 0;
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 25px;
@@ -228,7 +227,7 @@ body {
 /* ---------------------------- Itemdex Page ---------------------------- */
 /* Each individual Item with details */
 #itemdex {
-    padding-inline-start: 0;
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 25px;
@@ -266,7 +265,7 @@ body {
 /* ---------------------------- Movedex Page ---------------------------- */
 /* Each individual Moves with details */
 #movedex {
-    padding-inline-start: 0;
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-gap: 25px;

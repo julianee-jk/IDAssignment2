@@ -165,7 +165,7 @@ The following links below are all the links of social medias, images, albums etc
 [Pokémon Sprites](https://Pokéapi.co/)
 
 **Icons**
-[Arrow Up](https://fsymbols.com/signs/arrow/),
+[Arrow Up](https://icons.getbootstrap.com/),
 [Cross](http://www.i2symbol.com/symbols/check)
 
 ### Acknowledgements

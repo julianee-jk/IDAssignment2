@@ -8,11 +8,10 @@ const searchBar = document.getElementById('searchBar');
 const searchBarItems = document.getElementById('searchBarItems');
 //Get the button
 const topButton = document.getElementById("topBtn");
-
-const pokeCache = {};
-const itemCache = {};
-const moveCache = {};
+// Pokemon array to store objects
 let pokemon = [];
+// Array to store contact form details
+let contactArray = [];
 
 // Lighter colours of all Pokemon types
 const colors = {
@@ -28,17 +27,41 @@ const realColors = {
     rock: '#B8A038', fairy: '#EE99AC', poison: '#A040A0', bug: '#A8B820', dragon: '#7038F8', 
     psychic: '#F85888', flying: '#A890F0',fighting: '#C03028', normal: '#A8A878',ice: '#98D8D8',
     ghost: '#705898',dark: '#705848',steel: '#B8B8D0'
-}
+};
 
 // Colours for Damage Classes
 const dmgColors = {
     physical: '#e86458', special: '#4f5870', status: '#8c888c'
-}
+};
 
 // Function to check if ID is in page
 function isInPage(node) {
     return (node === document.body) ? false : document.body.contains(node);
-  }
+};
+
+// -------------------------------------------- CONTACT PAGE LOCAL STORAGE  --------------------------------------------
+// Retrieve form info when submit
+document.addEventListener('submit', function(event){
+    // Prevent default action of the form from submitting
+    event.preventDefault();
+
+    //Object templates
+    function Contact(userEmail, userType, userQuery){
+        this.userEmail = userEmail;
+        this.userType = userType;
+        this.userQuery = userQuery;
+    }
+
+    // Create consts of contact form
+    const userEmail = document.getElementById("user-email").value;
+    const userType = document.getElementById("user-enquiry-type").value;
+    const userQuery = document.getElementById("user-enquiry-desc").value;
+
+    contactArray.push(new Contact(userEmail, userType, userQuery));
+    localStorage.setItem('Contact', JSON.stringify(contactArray));
+
+    document.getElementById('contactForm').reset();
+});
 
 // -------------------------------------------- SEARCH BAR --------------------------------------------
 // Check every user key input
@@ -90,7 +113,6 @@ const fetchItems = async () => {
     const data = await res.json();
     pokeItem = data.results.map( (result, index) => 
     ({
-        ...result,
         id: index + 1,
         name: result.name,
         // image: result.sprites['default']
@@ -115,15 +137,11 @@ const displayItem = (pokeitem) => {
 
 // Select Item ID 
 const selectItem = async (id) => {
-    if (!itemCache[id]) {
-        const url = `https://pokeapi.co/api/v2/item/${id}`;
-        const res = await fetch(url);
-        const indivItem = await res.json();
-        itemCache[id] = indivItem;
-        displayItemPopup(indivItem);
-    }
-    displayItemPopup(itemCache[id]);
-}
+    const url = `https://pokeapi.co/api/v2/item/${id}`;
+    const res = await fetch(url);
+    const indivItem = await res.json();
+    displayItemPopup(indivItem);
+};
 
 // Display Item Popup 
 const displayItemPopup = (indivItem) => {
@@ -161,7 +179,6 @@ const fetchMoves = async () => {
         const moveDetailsResult = await fetch(result.url);
         const moveDetailsJSON = await moveDetailsResult.json();
         return {
-          ...moveDetailsJSON,
           id: index + 1,
           name: result.name,
         };
@@ -188,15 +205,11 @@ const displayMove = (pokeMove) => {
 
 // Select Move ID 
 const selectMove = async (id) => {
-    if (!moveCache[id]) {
-        const url = `https://pokeapi.co/api/v2/move/${id}`;
-        const res = await fetch(url);
-        const indivMove = await res.json();
-        moveCache[id] = indivMove;
-        displayMovePopup(indivMove);
-    }
-    displayMovePopup(moveCache[id]);
-}
+    const url = `https://pokeapi.co/api/v2/move/${id}`;
+    const res = await fetch(url);
+    const indivMove = await res.json();
+    displayMovePopup(indivMove);
+};
 
 // Display Move Popup 
 const displayMovePopup = (indivMove) => {
@@ -274,22 +287,17 @@ const displayPokemon = (pokemon) => {
 
 // Select Pokemon ID 
 const selectPokemon = async (id) => {
-    if (!pokeCache[id]) {
-        const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-        const res = await fetch(url);
-        const indivPoke = await res.json();
-        pokeCache[id] = indivPoke;
-        displayPopup(indivPoke);
-    } 
-        displayPopup(pokeCache[id]);
-}
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+    const res = await fetch(url);
+    const indivPoke = await res.json();
+    displayPopup(indivPoke);
+};
 
 // Display Pokemon Popup 
 const displayPopup = (indivPoke) => {
     const image = indivPoke.sprites['front_default']
     const shinyimage = indivPoke.sprites['front_shiny']
     const expyield = indivPoke.base_experience
-    // const moves = indivPoke.moves.map((move) => `${move.move.name}: ${move.version_group_details[0].level_learned_at}`).join(', ')
     const type = indivPoke.types.map((type) => type.type.name).join(', ')
     const typeColor = indivPoke.types.map((type) => 
     `<span style="background-color: ${realColors[type.type.name]}" class="poke-type-name">${type.type.name}</span>`).join(' ')
@@ -348,18 +356,13 @@ const closePopup = () => {
 // On click change region
 $(document).ready(function(){
     // Hide search bar as default
-    if (isInPage(pokedex)) {
-        $( ".searchWrapper" ).hide();
-    }
-    else if (isInPage(itemdex)) {
+    if (isInPage(itemdex)) {
         fetchItems();
         $( ".searchWrapper" ).show();
-    }
-    else if (isInPage(movedex)){
+    } else if (isInPage(movedex)){
         fetchMoves();
         $( ".searchWrapper" ).show();
-    }
-    else {
+    } else {
         $( ".searchWrapper" ).hide();
     }
     // All regions
@@ -436,10 +439,10 @@ function scrollFunction() {
   } else {
     topButton.style.display = "none";
   }
-}
+};
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
-}
+};

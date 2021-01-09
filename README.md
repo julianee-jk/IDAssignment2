@@ -1,6 +1,6 @@
 # IDAssignment2
 **Interactive Design** - Assignment 2 (Ee Jun Kai Julian) 
-Updated as of: (9/1/2021)
+Updated as of: (10/1/2021)
 
 # Introduction
 This website or mobile application is made to allow anybody be it newcomers or existing Pokémon fans to look up more information about their favourite Pokémon, PokéItems or even the specific Moves to learn more about what it does. In the Pokédex, they will be able to see more about the ID of the Pokémon, the name of the Pokémon, the Type(s) of the Pokémon as well as other relevant information like it's EXP Yield. 
@@ -18,7 +18,7 @@ I decided to come up with this Pokémon Information Center website/application b
     * The fans will also be able to look at the various Pokémon Type advantages and disadvantages. This will allow them to gain extra knowledge on the game which they can use to their advantage in Player-versus-Player combat.
     * Similarly, the fans will be able to access the Movedex & the Itemdex to look up specific information of any Items & Moves they wish to know more about.
 
-**Wireframe Link:**
+**Other:**
 Click to access the [Website Wireframe](https://drive.google.com/drive/folders/1iIDFmfFIgDDwleMQjQUlXSr9yx-J1_Uf?usp=sharing).
 Click to access [Github Pages](https://julianee-jk.github.io/IDAssignment2/).
 
@@ -105,27 +105,16 @@ These are all the tools and languages which I have used to construct this projec
 ### Mobile Devices Tested
 
 * **Motorola Moto G4**
-    * Mobile responsiveness works well on this device.
 * **Samsung Galaxy S5**
-    * Mobile responsiveness works well on this device.
 * **Google Pixel 2**
-    * Mobile responsiveness works well on this device.
 * **Google Pixel 2 XL**
-    * Mobile responsiveness works well on this device.
 * **iPhone 5/SE**
-    * Mobile responsiveness works well on this device.
 * **iPhone 6/7/8**
-    * Mobile responsiveness works well on this device.
 * **iPhone 6/7/8 Plus**
-    * Mobile responsiveness works well on this device.
 * **iPhone X**
-    * Mobile responsiveness works well on this device.
 * **iPad**
-    * Mobile responsiveness works well on this device.
 * **iPad Pro**
-    * Mobile responsiveness works well on this device. 
 * **Surface Duo**
-    * Mobile responsiveness works well on this device.
 * **Samsung Galaxy Fold**
     * Black background of Popup menu does not cover whole screen.
 
@@ -138,7 +127,6 @@ These are all the tools and languages which I have used to construct this projec
 
 ### Content
 1. [PokéAPI](https://Pokéapi.co/) → Pokémon API used to gather data.
-
 1. [PokéAPI Github](https://github.com/PokeAPI/sprites) → Pokémon & Item sprites
 ### Media & Sources
 The following links below are all the links of social medias, images, albums etc.. that I have made use of throughout my website.

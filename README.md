@@ -76,8 +76,7 @@ All the webpages share the same designs for the header page and footer.
     * Mobile responsiveness for devices including Galaxy Fold.
 
 ### Features to implement
-- [ ] Fixed mobile responsiveness for Galaxy Fold.
-- [ ] Add evolution chart.
+* Add evolution chart.
 
 ## Technology Used
 These are all the tools and languages which I have used to construct this project.
@@ -114,9 +113,10 @@ These are all the tools and languages which I have used to construct this projec
 * **iPhone X**
 * **iPad**
 * **iPad Pro**
+    * Footer in index page won't stick at the bottom.
 * **Surface Duo**
 * **Samsung Galaxy Fold**
-    * Black background of Popup menu does not cover whole screen.
+    * Popup menu works but does not cover whole screen height.
 
 ### Validators
 

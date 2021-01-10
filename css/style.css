@@ -488,9 +488,15 @@ body {
         box-shadow: 0 3px 15px rgba(255, 255, 255, 0.5);
         border: 3px solid rgb(255, 255, 255);
     }
+    /* Main text box info > Mobile */
+    .maintext-box-info {
+        padding: 5em 5em 10em 5em ;
+        text-align: center;
+        font-size: 20px;
+    }
 }
 
-/* MOBILE RESPONSIVENESS FOR iPad Pro*/
+/* MOBILE RESPONSIVENESS FOR iPad*/
 @media only screen and (max-width: 800px) {
     /* Popup Card Design */
     .popup-card {
@@ -520,9 +526,9 @@ body {
 
     /* Main text box info > Mobile */
     .maintext-box-info {
-        padding: 3em;
+        padding: 3.2em;
         text-align: center;
-        font-size: 13px;
+        font-size: 15px;
     }
 
     /* Box for region buttons */
